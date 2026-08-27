@@ -18,6 +18,7 @@ media/*
 .vscode/
 .idea/
 *.log
+staticfiles/
 
 # Temporary files
 *.tmp

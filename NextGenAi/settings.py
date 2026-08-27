@@ -71,13 +71,9 @@ GROQ_MODEL = (
 SECRET_KEY = 'django-insecure-m_t@&gh+v#fn^7ea=4ycq+69t%8&x1c2ov@x0=x7*gw$*_*jq('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    "testserver",
-]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -180,6 +176,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
