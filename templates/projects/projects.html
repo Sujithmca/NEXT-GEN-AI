@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+
+{% block title %}Projects | NextGenAI{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <!-- HEADER -->
+
+    <div class="text-center mb-5">
+
+        <span class="badge rounded-pill bg-primary px-3 py-2">
+            NEXTGENAI PROJECT LAB
+        </span>
+
+        <h1 class="display-4 fw-bold mt-3">
+            Explore Our
+            <span class="text-primary">Projects</span>
+        </h1>
+
+        <p class="text-secondary mx-auto"
+           style="max-width:750px;">
+
+            Discover innovative projects created by
+            NextGenAI students using AI and emerging technologies.
+
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <form method="GET" class="mb-5">
+
+        <div class="row g-3">
+
+            <div class="col-lg-7">
+
+                <input
+                    type="search"
+                    name="search"
+                    value="{{ search_query }}"
+                    class="form-control form-control-lg"
+                    placeholder="🔍 Search projects..."
+                >
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <select
+                    name="category"
+                    class="form-select form-select-lg"
+                >
+
+                    <option value="">
+                        All Categories
+                    </option>
+
+                    {% for category in categories %}
+
+                    <option
+                        value="{{ category }}"
+                        {% if selected_category == category %}
+                            selected
+                        {% endif %}
+                    >
+                        {{ category }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+            <div class="col-lg-2">
+
+                <button
+                    class="btn btn-primary btn-lg w-100"
+                >
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+
+    <!-- FEATURED PROJECTS -->
+
+    {% if featured_projects %}
+
+    <div class="mb-5">
+
+        <h2 class="fw-bold mb-4">
+            ⭐ Featured Projects
+        </h2>
+
+        <div class="row g-4">
+
+            {% for project in featured_projects %}
+
+            <div class="col-lg-6">
+
+                <div class="card project-card
+                            border-0 shadow-lg h-100">
+
+                    <div class="project-visual">
+
+                        {% if project.image %}
+
+                        <img
+                            src="{{ project.image }}"
+                            alt="{{ project.title }}"
+                        >
+
+                        {% else %}
+
+                        <div class="project-placeholder">
+                            <span>🤖</span>
+                        </div>
+
+                        {% endif %}
+
+                        <span class="featured-label">
+                            FEATURED
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-body p-4">
+
+                        <span class="badge bg-primary mb-3">
+                            {{ project.category }}
+                        </span>
+
+                        <h3 class="fw-bold">
+                            {{ project.title }}
+                        </h3>
+
+                        <p class="text-secondary">
+                            {{ project.description }}
+                        </p>
+
+
+                        <div class="mb-3">
+
+                            {% for tech in project.technologies %}
+
+                            <span class="badge tech-badge">
+                                {{ tech }}
+                            </span>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <a
+                            href="{% url 'projects:detail' project.id %}"
+                            class="btn btn-primary"
+                        >
+                            View Project →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- ALL PROJECTS -->
+
+    <h2 class="fw-bold mb-4">
+        All Projects
+    </h2>
+
+
+    <div class="row g-4">
+
+        {% for project in projects %}
+
+        <div class="col-xl-4 col-md-6">
+
+            <div class="card project-card
+                        border-0 shadow h-100">
+
+                <div class="project-visual">
+
+                    {% if project.image %}
+
+                    <img
+                        src="{{ project.image }}"
+                        alt="{{ project.title }}"
+                    >
+
+                    {% else %}
+
+                    <div class="project-placeholder">
+                        <span>💻</span>
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-primary mb-3">
+                        {{ project.category }}
+                    </span>
+
+                    <h4 class="fw-bold">
+                        {{ project.title }}
+                    </h4>
+
+                    <p class="text-secondary">
+                        {{ project.description|truncatewords:25 }}
+                    </p>
+
+
+                    <div class="mb-3">
+
+                        {% for tech in project.technologies %}
+
+                        <span class="badge tech-badge">
+                            {{ tech }}
+                        </span>
+
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="small text-secondary mb-3">
+                        👨‍💻 {{ project.student_name }}
+                    </div>
+
+
+                    <a
+                        href="{% url 'projects:detail' project.id %}"
+                        class="btn btn-outline-primary"
+                    >
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12 text-center py-5">
+
+            <h4>
+                No projects found.
+            </h4>
+
+            <p class="text-secondary">
+                Try another search or category.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

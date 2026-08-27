@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ learning.title }} | NextGenAI
+{% endblock %}
+
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="learning-detail-card">
+
+        <div class="text-center mb-5">
+
+            <div class="learning-detail-icon">
+
+                {{ learning.icon }}
+
+            </div>
+
+            <span class="badge bg-primary">
+
+                {{ learning.level }}
+
+            </span>
+
+            <h1 class="display-5 fw-bold mt-3">
+
+                {{ learning.title }}
+
+            </h1>
+
+            <p class="lead text-secondary">
+
+                {{ learning.description }}
+
+            </p>
+
+        </div>
+
+
+        <!-- TOPICS -->
+
+        <h3 class="fw-bold mb-4">
+
+            📚 What You Will Learn
+
+        </h3>
+
+
+        <div class="row g-3 mb-5">
+
+            {% for topic in learning.topics %}
+
+            <div class="col-md-6">
+
+                <div class="roadmap-topic">
+
+                    <span>✓</span>
+
+                    {{ topic }}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- ROADMAP -->
+
+        <h3 class="fw-bold mb-4">
+
+            🗺️ Learning Roadmap
+
+        </h3>
+
+
+        <div class="roadmap">
+
+            {% for step in learning.roadmap %}
+
+            <div class="roadmap-step">
+
+                <div class="roadmap-number">
+
+                    {{ forloop.counter }}
+
+                </div>
+
+                <div>
+
+                    <h5 class="fw-bold mb-1">
+
+                        {{ step }}
+
+                    </h5>
+
+                    <p class="text-secondary mb-0">
+
+                        Complete this step before moving
+                        to the next level.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- PROJECT IDEAS -->
+
+        <h3 class="fw-bold mt-5 mb-4">
+
+            💡 Project Ideas
+
+        </h3>
+
+
+        <div class="row g-3">
+
+            {% for idea in learning.project_ideas %}
+
+            <div class="col-md-4">
+
+                <div class="project-idea">
+
+                    🚀 {{ idea }}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

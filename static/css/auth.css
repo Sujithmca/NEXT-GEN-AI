@@ -1,0 +1,23 @@
+body { background: var(--background-color); }
+.auth-shell { min-height: 100vh; padding: 140px 20px 80px; position: relative; overflow: hidden; background: radial-gradient(circle at 15% 20%, rgba(245, 185, 66, .16), transparent 32%), radial-gradient(circle at 85% 75%, rgba(200, 135, 40, .16), transparent 30%), var(--background-color); color: var(--text-primary-color); }
+.auth-card { width: min(100%, 880px); margin: auto; padding: clamp(28px, 5vw, 58px); position: relative; z-index: 1; border: 1px solid var(--border-color); border-radius: var(--radius-card); background: rgba(10, 16, 32, .82); box-shadow: var(--shadow-card); backdrop-filter: blur(20px); }
+.auth-login-card { max-width: 520px; }
+.auth-intro { margin-bottom: 30px; }
+.auth-kicker { color: var(--primary-color); font-size: 11px; font-weight: 800; letter-spacing: 2px; }
+.auth-intro h1, .profile-card h1 { margin: 10px 0 8px; font-family: var(--font-family); font-size: clamp(2rem, 5vw, 3.7rem); line-height: 1; color: var(--text-primary-color); }
+.auth-intro p, .profile-handle { color: var(--text-secondary-color); }
+.auth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field-span-2 { grid-column: span 2; }
+.auth-field { display: flex; flex-direction: column; gap: 7px; }
+.auth-field label, .remember-row { color: var(--text-secondary-color); font-size: 13px; font-weight: 700; }
+.auth-field input, .auth-field select { width: 100%; padding: 13px 14px; border: 1px solid var(--border-color); border-radius: var(--radius-control); background: rgba(15, 23, 42, .7); color: var(--text-primary-color); outline: 0; }
+.auth-field input:focus, .auth-field select:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(245, 185, 66, .18); }
+.auth-field small { min-height: 17px; color: #fb7185; font-size: 12px; }
+.has-error input, .has-error select { border-color: #fb7185; }
+.password-wrap { position: relative; }.password-wrap input { padding-right: 65px; }.password-toggle { position: absolute; right: 9px; top: 8px; padding: 5px 7px; border: 0; background: transparent; color: var(--accent-color); font-size: 12px; cursor: pointer; }
+.auth-submit { width: 100%; margin-top: 12px; padding: 14px 18px; border: 0; border-radius: var(--radius-control); background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: #fff; font-weight: 800; cursor: pointer; transition: transform .2s, background .2s; }.auth-submit:hover { transform: translateY(-2px); }.auth-submit:disabled { opacity: .65; cursor: wait; transform: none; }
+.remember-row { display: flex; align-items: center; gap: 8px; margin: 2px 0 8px; }.remember-row input { accent-color: var(--accent-color); }
+.auth-footer { margin: 25px 0 0; color: var(--text-secondary-color); text-align: center; font-size: 14px; }.auth-footer a { color: var(--accent-color); font-weight: 700; }.auth-message { padding: 12px 14px; margin-bottom: 18px; border-radius: var(--radius-control); font-size: 13px; }.auth-message.error { background: rgba(244, 114, 182, .14); color: #fbcfe8; }.auth-message.success { background: rgba(34, 211, 238, .14); color: #a5f3fc; }
+.auth-orbit { position: absolute; width: 240px; height: 240px; border: 1px solid rgba(245,185,66,.2); border-radius: 50%; animation: drift 12s ease-in-out infinite; }.orbit-one { top: 12%; left: -90px; }.orbit-two { right: -100px; bottom: 12%; border-color: rgba(200,135,40,.2); animation-delay: -5s; } @keyframes drift { 50% { transform: translate(25px, -18px) rotate(20deg); } }
+.profile-card { max-width: 720px; }.profile-handle { margin-bottom: 34px; }.role-chip { display: inline-block; margin-left: 8px; padding: 5px 9px; border-radius: 999px; background: rgba(34, 211, 238, .15); color: var(--accent-color); font-size: 11px; text-transform: uppercase; }.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-bottom: 28px; background: var(--border-color); border: 1px solid var(--border-color); }.profile-grid div { display: grid; gap: 7px; padding: 18px; background: var(--surface-color); }.profile-grid small { color: var(--text-secondary-color); }.profile-grid strong { overflow-wrap: anywhere; color: var(--text-primary-color); font-size: 14px; }
+@media (max-width: 600px) { .auth-grid, .profile-grid { grid-template-columns: 1fr; }.field-span-2 { grid-column: auto; }.auth-shell { padding-top: 110px; } }

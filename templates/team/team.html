@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Our Team | NextGenAI{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge rounded-pill bg-primary px-3 py-2">
+            NEXTGENAI COMMUNITY
+        </span>
+
+        <h1 class="display-4 fw-bold mt-3">
+            Meet Our <span class="text-primary">Team</span>
+        </h1>
+
+        <p class="text-secondary mx-auto" style="max-width: 700px;">
+            The passionate students and faculty members behind
+            NextGenAI.
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+        {% for member in team_members %}
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card h-100 border-0 shadow-lg team-card">
+
+                <div class="card-body text-center p-4">
+
+                    {% if member.profile_image %}
+
+                    <img
+                        src="{{ member.profile_image }}"
+                        class="rounded-circle mb-3"
+                        width="110"
+                        height="110"
+                        style="object-fit:cover;"
+                        alt="{{ member.name }}"
+                    >
+
+                    {% else %}
+
+                    <div
+                        class="rounded-circle bg-primary text-white
+                               d-flex align-items-center justify-content-center
+                               mx-auto mb-3"
+                        style="width:110px;height:110px;font-size:40px;"
+                    >
+                        {{ member.name|first }}
+                    </div>
+
+                    {% endif %}
+
+
+                    <h4 class="fw-bold">
+                        {{ member.name }}
+                    </h4>
+
+                    <span class="badge bg-primary mb-3">
+                        {{ member.role }}
+                    </span>
+
+                    <p class="text-secondary">
+                        {{ member.department }}
+                    </p>
+
+                    <p>
+                        {{ member.bio }}
+                    </p>
+
+
+                    <div class="mt-3">
+
+                        {% if member.linkedin %}
+                        <a
+                            href="{{ member.linkedin }}"
+                            target="_blank"
+                            class="btn btn-outline-primary btn-sm"
+                        >
+                            LinkedIn
+                        </a>
+                        {% endif %}
+
+                        {% if member.github %}
+                        <a
+                            href="{{ member.github }}"
+                            target="_blank"
+                            class="btn btn-outline-dark btn-sm"
+                        >
+                            GitHub
+                        </a>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12 text-center">
+            <p>No team members available.</p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

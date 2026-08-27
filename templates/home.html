@@ -1,0 +1,714 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+NextGenAI | Build. Innovate. Inspire.
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ======================================
+     HERO SECTION
+====================================== -->
+
+<section class="hero-section">
+
+    <!-- Animated Background -->
+    <div class="hero-background">
+
+        <div class="grid-overlay"></div>
+
+        <div class="glow glow-one"></div>
+
+        <div class="glow glow-two"></div>
+
+        <div class="glow glow-three"></div>
+
+
+        <!-- AI Nodes -->
+        <div class="ai-node node-1"></div>
+        <div class="ai-node node-2"></div>
+        <div class="ai-node node-3"></div>
+        <div class="ai-node node-4"></div>
+        <div class="ai-node node-5"></div>
+        <div class="ai-node node-6"></div>
+
+
+        <div class="connection connection-1"></div>
+        <div class="connection connection-2"></div>
+        <div class="connection connection-3"></div>
+
+    </div>
+
+
+    <div class="container hero-content">
+
+        <div class="row align-items-center">
+
+            <!-- Hero Text -->
+            <div class="col-lg-7">
+
+                <div class="hero-badge">
+
+                    <span class="pulse-dot"></span>
+
+                    AI & Technology Student Club
+
+                </div>
+
+
+                <h1 class="hero-title">
+
+                    Build the
+                    <span>Future.</span>
+
+                    <br>
+
+                    <span>Innovate</span>
+                    with AI.
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    NextGenAI empowers students to
+                    explore Artificial Intelligence,
+                    emerging technologies and
+                    real-world innovation.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#projects"
+                        class="btn hero-primary-btn"
+                    >
+
+                        Explore Projects
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+
+                    <a
+                        href="#about"
+                        class="btn hero-secondary-btn"
+                    >
+
+                        Discover NextGenAI
+
+                    </a>
+
+                </div>
+
+
+                <!-- Mini Trust -->
+                <div class="hero-trust">
+
+                    <div class="trust-avatars">
+
+                        <div class="avatar">
+                            AI
+                        </div>
+
+                        <div class="avatar">
+                            ML
+                        </div>
+
+                        <div class="avatar">
+                            DS
+                        </div>
+
+                        <div class="avatar">
+                            +
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Student Innovation
+                        </strong>
+
+                        <small>
+                            Learn • Build • Collaborate
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero AI Visual -->
+            <div class="col-lg-5">
+
+                <div class="ai-orb-wrapper">
+
+                    <div class="orbit orbit-one"></div>
+
+                    <div class="orbit orbit-two"></div>
+
+                    <div class="orbit orbit-three"></div>
+
+
+                    <div class="ai-orb">
+
+                        <div class="orb-core">
+
+                            <i class="bi bi-cpu"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="floating-tech tech-one">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+
+                    <div class="floating-tech tech-two">
+                        <i class="bi bi-robot"></i>
+                    </div>
+
+                    <div class="floating-tech tech-three">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+
+                    <div class="floating-tech tech-four">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="scroll-indicator">
+
+        <span>
+            Scroll to explore
+        </span>
+
+        <i class="bi bi-chevron-down"></i>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     STATISTICS
+====================================== -->
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="stats-wrapper">
+
+            <div class="stat-item">
+
+                <div class="stat-icon">
+                    <i class="bi bi-people"></i>
+                </div>
+
+                <div>
+
+                    <h2
+                        class="counter"
+                        data-target="{{ statistics.members }}"
+                    >
+                        0
+                    </h2>
+
+                    <p>
+                        Active Members
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-item">
+
+                <div class="stat-icon">
+                    <i class="bi bi-code-square"></i>
+                </div>
+
+                <div>
+
+                    <h2
+                        class="counter"
+                        data-target="{{ statistics.projects }}"
+                    >
+                        0
+                    </h2>
+
+                    <p>
+                        Projects
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-item">
+
+                <div class="stat-icon">
+                    <i class="bi bi-calendar-event"></i>
+                </div>
+
+                <div>
+
+                    <h2
+                        class="counter"
+                        data-target="{{ statistics.events }}"
+                    >
+                        0
+                    </h2>
+
+                    <p>
+                        Events
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-item">
+
+                <div class="stat-icon">
+                    <i class="bi bi-trophy"></i>
+                </div>
+
+                <div>
+
+                    <h2
+                        class="counter"
+                        data-target="{{ statistics.achievements }}"
+                    >
+                        0
+                    </h2>
+
+                    <p>
+                        Achievements
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     ABOUT
+====================================== -->
+
+<section
+    id="about"
+    class="section-padding"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                WHO WE ARE
+            </span>
+
+            <h2>
+                More Than Just a Club.
+            </h2>
+
+            <p>
+
+                A community where students
+                transform ideas into technology.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-lightbulb"></i>
+
+                    </div>
+
+                    <h4>
+                        Learn
+                    </h4>
+
+                    <p>
+
+                        Explore AI, Machine Learning,
+                        Generative AI and emerging
+                        technologies through
+                        workshops and peer learning.
+
+                    </p>
+
+                    <span class="feature-number">
+                        01
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-code-slash"></i>
+
+                    </div>
+
+                    <h4>
+                        Build
+                    </h4>
+
+                    <p>
+
+                        Turn ideas into real-world
+                        projects and create solutions
+                        that make an impact.
+
+                    </p>
+
+                    <span class="feature-number">
+                        02
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-people"></i>
+
+                    </div>
+
+                    <h4>
+                        Collaborate
+                    </h4>
+
+                    <p>
+
+                        Connect with students,
+                        faculty and technology
+                        enthusiasts to grow together.
+
+                    </p>
+
+                    <span class="feature-number">
+                        03
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     VISION
+====================================== -->
+
+<section class="vision-section">
+
+    <div class="container">
+
+        <div class="vision-card">
+
+            <div class="vision-content">
+
+                <span>
+                    OUR VISION
+                </span>
+
+                <h2>
+                    Creating the Next Generation
+                    of Innovators.
+                </h2>
+
+                <p>
+
+                    We believe every student has
+                    the potential to build something
+                    meaningful with technology.
+
+                    NextGenAI provides the platform,
+                    community and opportunities
+                    to make that happen.
+
+                </p>
+
+
+                <div class="vision-points">
+
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        AI-driven learning
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Real-world projects
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Technical collaboration
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Innovation mindset
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="vision-visual">
+
+                <div class="vision-circle">
+
+                    <i class="bi bi-stars"></i>
+
+                </div>
+
+                <div class="vision-ring ring-one"></div>
+
+                <div class="vision-ring ring-two"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     FEATURED PROJECTS
+====================================== -->
+
+<section
+    id="projects"
+    class="section-padding"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                PROJECT SHOWCASE
+            </span>
+
+            <h2>
+                Ideas Into Reality.
+            </h2>
+
+            <p>
+
+                Explore innovative projects
+                created by NextGenAI members.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for project in featured_projects %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="project-card">
+
+                    <div class="project-image">
+
+                        <div class="project-placeholder">
+
+                            <i class="bi bi-cpu"></i>
+
+                        </div>
+
+
+                        <span class="project-category">
+
+                            {{ project.category }}
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h4>
+                            {{ project.title }}
+                        </h4>
+
+                        <p>
+
+                            {{ project.description }}
+
+                        </p>
+
+
+                        <div class="project-footer">
+
+                            <span>
+                                {{ project.technologies }}
+                            </span>
+
+                            <a href="{{ project.demo_url }}">
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-state">
+
+                    <i class="bi bi-code-square"></i>
+
+                    <h4>
+                        Projects Coming Soon
+                    </h4>
+
+                    <p>
+                        Amazing student projects
+                        will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     CTA
+====================================== -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-card">
+
+            <div class="cta-glow"></div>
+
+            <div class="position-relative">
+
+                <span>
+                    JOIN THE MOVEMENT
+                </span>
+
+                <h2>
+                    Ready to Build
+                    What's Next?
+                </h2>
+
+                <p>
+
+                    Join a community of students
+                    passionate about AI,
+                    technology and innovation.
+
+                </p>
+
+
+                <a
+                    href="#"
+                    class="btn hero-primary-btn"
+                >
+
+                    Join NextGenAI
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+{% endblock %}

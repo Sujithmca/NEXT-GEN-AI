@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ news.title }} | NextGenAI
+{% endblock %}
+
+
+{% block content %}
+
+<section class="container py-5">
+
+    <article class="news-detail">
+
+        <span class="badge bg-primary">
+
+            {{ news.category }}
+
+        </span>
+
+
+        <h1 class="display-4 fw-bold mt-3">
+
+            {{ news.title }}
+
+        </h1>
+
+
+        <div class="text-secondary mb-4">
+
+            Published on {{ news.date }}
+            ·
+            {{ news.author }}
+
+        </div>
+
+
+        {% if news.image %}
+
+        <img
+            src="{{ news.image }}"
+            class="img-fluid rounded-4 mb-5"
+            alt="{{ news.title }}"
+        >
+
+        {% endif %}
+
+
+        <p class="lead text-secondary">
+
+            {{ news.description }}
+
+        </p>
+
+
+        <a
+            href="{% url 'news:news' %}"
+            class="btn btn-outline-primary mt-4"
+        >
+
+            ← Back to News
+
+        </a>
+
+    </article>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Member Details | NextGenAI{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <span class="badge bg-primary mb-2">JOINED CLUB MEMBER</span>
+            <h1 class="fw-bold mb-1">{{ member.full_name }}</h1>
+            <p class="text-muted mb-0">Registration and membership details</p>
+        </div>
+        <a href="{% url 'management:dashboard' %}" class="btn btn-outline-primary">Dashboard</a>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4 p-4">
+        <div class="row g-4">
+            <div class="col-md-6"><small class="text-muted d-block">Member ID</small><strong>{{ member.id }}</strong></div>
+            <div class="col-md-6"><small class="text-muted d-block">Username</small><strong>@{{ member.username }}</strong></div>
+            <div class="col-md-6"><small class="text-muted d-block">Email</small><strong>{{ member.email }}</strong></div>
+            <div class="col-md-6"><small class="text-muted d-block">Phone</small><strong>{{ member.phone }}</strong></div>
+            <div class="col-md-6"><small class="text-muted d-block">Department</small><strong>{{ member.department }}</strong></div>
+            <div class="col-md-6"><small class="text-muted d-block">Year of Study</small><strong>{{ member.year }}</strong></div>
+            <div class="col-md-6"><small class="text-muted d-block">Role</small><strong>{{ member.role }}</strong></div>
+            <div class="col-md-6"><small class="text-muted d-block">Registered At</small><strong>{{ member.created_at }}</strong></div>
+            <div class="col-md-6"><small class="text-muted d-block">Club Joined</small><strong>{% if member.club_member %}Yes{% else %}No{% endif %}</strong></div>
+            <div class="col-md-6"><small class="text-muted d-block">Joined At</small><strong>{{ member.joined_at|default:"-" }}</strong></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

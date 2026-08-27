@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Achievements | NextGenAI{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-primary px-3 py-2">
+            NEXTGENAI ACHIEVEMENTS
+        </span>
+
+        <h1 class="display-4 fw-bold mt-3">
+            Our <span class="text-primary">Achievements</span>
+        </h1>
+
+        <p class="text-secondary">
+            Celebrating innovation, excellence and student success.
+        </p>
+
+    </div>
+
+
+    <div class="achievement-timeline">
+
+        {% for achievement in achievements %}
+
+        <div class="achievement-item">
+
+            <div class="achievement-dot"></div>
+
+            <div class="card border-0 shadow achievement-card">
+
+                <div class="card-body p-4">
+
+                    <div class="d-flex justify-content-between
+                                align-items-start flex-wrap gap-2">
+
+                        <div>
+
+                            <span class="badge bg-primary mb-2">
+                                {{ achievement.category }}
+                            </span>
+
+                            <h3 class="fw-bold">
+                                {{ achievement.title }}
+                            </h3>
+
+                        </div>
+
+                        <span class="text-secondary">
+                            {{ achievement.date }}
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-secondary mt-2">
+                        {{ achievement.description }}
+                    </p>
+
+
+                    <p class="mb-3">
+                        🏅
+                        <strong>
+                            {{ achievement.student_name }}
+                        </strong>
+                    </p>
+
+
+                    {% if achievement.certificate_url %}
+
+                    <a
+                        href="{{ achievement.certificate_url }}"
+                        target="_blank"
+                        class="btn btn-outline-primary"
+                    >
+                        View Certificate
+                    </a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <p class="text-center">
+            No achievements available.
+        </p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

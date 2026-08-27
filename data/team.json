@@ -1,0 +1,46 @@
+[
+    {
+        "id": 2,
+        "name": "Sujith S",
+        "role": "Club President",
+        "department": "MCA",
+        "bio": "Passionate about Artificial Intelligence, Generative AI and full-stack development.",
+        "profile_image": "",
+        "linkedin": "#",
+        "github": "#",
+        "is_active": true
+    },
+    {
+        "id": 3,
+        "name": "Rahul Kumar",
+        "role": "Vice President",
+        "department": "MCA",
+        "bio": "Interested in machine learning, cloud technologies and technical communities.",
+        "profile_image": "",
+        "linkedin": "#",
+        "github": "#",
+        "is_active": true
+    },
+    {
+        "id": 4,
+        "name": "Priya S",
+        "role": "Technical Lead",
+        "department": "MCA",
+        "bio": "Full-stack developer focused on building innovative student projects.",
+        "profile_image": "",
+        "linkedin": "#",
+        "github": "#",
+        "is_active": true
+    },
+    {
+        "id": 5,
+        "name": "Kavin R",
+        "role": "Event Coordinator",
+        "department": "MCA",
+        "bio": "Organizing workshops, hackathons and technical events.",
+        "profile_image": "",
+        "linkedin": "#",
+        "github": "#",
+        "is_active": true
+    }
+]

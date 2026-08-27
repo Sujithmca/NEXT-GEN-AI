@@ -1,0 +1,41 @@
+[
+    {
+        "id": 1,
+        "title": "Generative AI Workshop",
+        "description": "An interactive workshop introducing students to Generative AI, prompt engineering and AI-powered applications.",
+        "category": "Workshop",
+        "date": "2026-09-15",
+        "start_time": "10:00",
+        "end_time": "13:00",
+        "venue": "Computer Lab - Block A",
+        "banner_image": "",
+        "registration_link": "",
+        "is_upcoming": true
+    },
+    {
+        "id": 2,
+        "title": "NextGenAI Hackathon 2026",
+        "description": "Build innovative solutions using AI, Web Development and emerging technologies.",
+        "category": "Hackathon",
+        "date": "2026-10-10",
+        "start_time": "09:00",
+        "end_time": "18:00",
+        "venue": "Innovation Lab",
+        "banner_image": "",
+        "registration_link": "",
+        "is_upcoming": true
+    },
+    {
+        "id": 3,
+        "title": "AI Project Expo",
+        "description": "Students showcase their AI and technology projects to faculty and fellow students.",
+        "category": "Expo",
+        "date": "2026-07-20",
+        "start_time": "10:00",
+        "end_time": "15:00",
+        "venue": "Seminar Hall",
+        "banner_image": "",
+        "registration_link": "",
+        "is_upcoming": false
+    }
+]

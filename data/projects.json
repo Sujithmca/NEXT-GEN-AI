@@ -1,0 +1,73 @@
+[
+    {
+        "id": 1,
+        "title": "TravelMate AI",
+        "description": "An AI-powered travel assistant that provides personalized destinations, itineraries, travel suggestions and planning support.",
+        "category": "Generative AI",
+        "technologies": [
+            "Python",
+            "Django",
+            "JavaScript",
+            "AI API"
+        ],
+        "student_name": "NextGenAI Team",
+        "team_name": "AI Innovators",
+        "image": "",
+        "github_url": "#",
+        "demo_url": "#",
+        "is_featured": true
+    },
+    {
+        "id": 2,
+        "title": "AI Study Notes Generator",
+        "description": "A web application that generates structured study notes using Generative AI.",
+        "category": "AI",
+        "technologies": [
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Groq AI"
+        ],
+        "student_name": "NextGenAI Team",
+        "team_name": "AI Builders",
+        "image": "",
+        "github_url": "#",
+        "demo_url": "#",
+        "is_featured": true
+    },
+    {
+        "id": 3,
+        "title": "Smart Student Portal",
+        "description": "A responsive student management and academic information platform.",
+        "category": "Web Development",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Django"
+        ],
+        "student_name": "Student Team",
+        "team_name": "Web Wizards",
+        "image": "",
+        "github_url": "#",
+        "demo_url": "#",
+        "is_featured": false
+    },
+    {
+        "id": 4,
+        "title": "AI Image Analyzer",
+        "description": "An AI-based application for analyzing and classifying images.",
+        "category": "Machine Learning",
+        "technologies": [
+            "Python",
+            "TensorFlow",
+            "OpenCV"
+        ],
+        "student_name": "AI Research Team",
+        "team_name": "Vision Labs",
+        "image": "",
+        "github_url": "#",
+        "demo_url": "#",
+        "is_featured": false
+    }
+]

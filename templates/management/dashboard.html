@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+
+{% block title %}
+NextGenAI Management
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h1 class="fw-bold">
+                ⚙️ Management Dashboard
+            </h1>
+
+            <p class="text-muted">
+                Welcome, {{ user.username }}
+            </p>
+        </div>
+
+        <a
+            href="{% url 'home' %}"
+            class="btn btn-outline-primary"
+        >
+            ← Website
+        </a>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card shadow-sm border-0 rounded-4 p-4">
+
+                <h6 class="text-muted">
+                    Team Members
+                </h6>
+
+                <h2 class="fw-bold">
+                    {{ team_count }}
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card shadow-sm border-0 rounded-4 p-4">
+
+                <h6 class="text-muted">
+                    Events
+                </h6>
+
+                <h2 class="fw-bold">
+                    {{ event_count }}
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card shadow-sm border-0 rounded-4 p-4">
+
+                <h6 class="text-muted">
+                    Projects
+                </h6>
+
+                <h2 class="fw-bold">
+                    {{ project_count }}
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card shadow-sm border-0 rounded-4 p-4">
+
+                <h6 class="text-muted">
+                    Registrations
+                </h6>
+
+                <h2 class="fw-bold">
+                    {{ registration_count }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MANAGEMENT MODULES -->
+
+    <div class="row g-4">
+
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+
+                <h4>👥 Team</h4>
+
+                <p class="text-muted">
+                    Manage club team members.
+                </p>
+
+                <a
+                    href="{% url 'management:team_list' %}"
+                    class="btn btn-primary"
+                >
+                    Manage Team
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+
+                <h4>📅 Events</h4>
+
+                <p class="text-muted">
+                    Create and manage club events.
+                </p>
+
+                <a
+                    href="{% url 'management:events_list' %}"
+                    class="btn btn-primary"
+                >
+                    Manage Events
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+
+                <h4>💻 Projects</h4>
+
+                <p class="text-muted">
+                    Manage student projects.
+                </p>
+
+                <a
+                    href="{% url 'management:projects_list' %}"
+                    class="btn btn-primary"
+                >
+                    Manage Projects
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+
+                <h4>🏆 Achievements</h4>
+
+                <p class="text-muted">
+                    Manage student achievements.
+                </p>
+
+                <a
+                    href="{% url 'management:achievements_list' %}"
+                    class="btn btn-primary"
+                >
+                    Manage Achievements
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+
+                <h4>📚 Resources</h4>
+
+                <p class="text-muted">
+                    Manage learning resources.
+                </p>
+
+                <a
+                    href="{% url 'management:resources_list' %}"
+                    class="btn btn-primary"
+                >
+                    Manage Resources
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+
+                <h4>📰 News</h4>
+
+                <p class="text-muted">
+                    Manage club announcements.
+                </p>
+
+                <a
+                    href="{% url 'management:news_list' %}"
+                    class="btn btn-primary"
+                >
+                    Manage News
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+
+                <h4>🖼️ Gallery</h4>
+
+                <p class="text-muted">
+                    Manage club gallery.
+                </p>
+
+                <a
+                    href="{% url 'management:gallery_list' %}"
+                    class="btn btn-primary"
+                >
+                    Manage Gallery
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+
+                <h4>📝 Registrations</h4>
+
+                <p class="text-muted">
+                    View event registrations.
+                </p>
+
+                <a
+                    href="{% url 'management:registrations' %}"
+                    class="btn btn-success"
+                >
+                    View Registrations
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4 p-4 mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h3 class="fw-bold mb-1">Joined Club Members</h3>
+                <p class="text-muted mb-0">Members who completed the Join Club action.</p>
+            </div>
+            <span class="badge bg-primary">{{ joined_members|length }}</span>
+        </div>
+        <div class="list-group list-group-flush">
+            {% for member in joined_members %}
+                <a href="{% url 'management:member_detail' member.id %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center px-0">
+                    <span><strong>{{ member.full_name }}</strong><small class="d-block text-muted">@{{ member.username }}</small></span>
+                    <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </a>
+            {% empty %}
+                <p class="text-muted mb-0">No members have joined the club yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

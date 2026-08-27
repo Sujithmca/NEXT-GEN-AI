@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+
+{% block title %}Resource Hub | NextGenAI{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-primary px-3 py-2">
+            NEXTGENAI RESOURCE HUB
+        </span>
+
+        <h1 class="display-4 fw-bold mt-3">
+            Learn.
+            <span class="text-primary">
+                Build.
+            </span>
+            Grow.
+        </h1>
+
+        <p class="text-secondary mx-auto"
+           style="max-width:700px;">
+
+            Curated learning resources for students
+            exploring AI, programming and emerging technologies.
+
+        </p>
+
+    </div>
+
+
+    <!-- FILTER -->
+
+    <form method="GET" class="mb-5">
+
+        <div class="row g-3">
+
+            <div class="col-lg-5">
+
+                <input
+                    type="search"
+                    name="search"
+                    value="{{ search_query }}"
+                    class="form-control form-control-lg"
+                    placeholder="🔍 Search resources..."
+                >
+
+            </div>
+
+
+            <div class="col-lg-3">
+
+                <select
+                    name="category"
+                    class="form-select form-select-lg"
+                >
+
+                    <option value="">
+                        All Categories
+                    </option>
+
+                    {% for category in categories %}
+
+                    <option
+                        value="{{ category }}"
+                        {% if selected_category == category %}
+                            selected
+                        {% endif %}
+                    >
+                        {{ category }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <div class="col-lg-2">
+
+                <select
+                    name="type"
+                    class="form-select form-select-lg"
+                >
+
+                    <option value="">
+                        All Types
+                    </option>
+
+                    {% for type in resource_types %}
+
+                    <option
+                        value="{{ type }}"
+                        {% if selected_type == type %}
+                            selected
+                        {% endif %}
+                    >
+                        {{ type }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <div class="col-lg-2">
+
+                <button
+                    class="btn btn-primary btn-lg w-100"
+                >
+                    Filter
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+
+    <!-- RESOURCE CARDS -->
+
+    <div class="row g-4">
+
+        {% for resource in resources %}
+
+        <div class="col-xl-4 col-md-6">
+
+            <div class="card resource-card
+                        border-0 shadow h-100">
+
+                <div class="resource-icon">
+
+                    {% if resource.resource_type == "Course" %}
+                        🎓
+                    {% elif resource.resource_type == "Video" %}
+                        🎥
+                    {% elif resource.resource_type == "Documentation" %}
+                        📖
+                    {% elif resource.resource_type == "Research Paper" %}
+                        📄
+                    {% elif resource.resource_type == "Roadmap" %}
+                        🗺️
+                    {% elif resource.resource_type == "Coding Platform" %}
+                        💻
+                    {% else %}
+                        🚀
+                    {% endif %}
+
+                </div>
+
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3">
+
+                        <span class="badge bg-primary">
+                            {{ resource.category }}
+                        </span>
+
+                        <span class="badge bg-secondary">
+                            {{ resource.resource_type }}
+                        </span>
+
+                    </div>
+
+
+                    <h4 class="fw-bold">
+                        {{ resource.title }}
+                    </h4>
+
+
+                    <p class="text-secondary">
+                        {{ resource.description }}
+                    </p>
+
+
+                    <a
+                        href="{{ resource.url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-outline-primary"
+                    >
+                        Open Resource ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12 text-center py-5">
+
+            <h4>
+                No resources found.
+            </h4>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

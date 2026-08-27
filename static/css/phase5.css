@@ -1,0 +1,400 @@
+/* =========================================
+   LEARNING HUB
+========================================= */
+
+.learning-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: linear-gradient(135deg, rgba(14, 18, 35, 0.95), rgba(19, 26, 42, 0.9));
+    box-shadow: 0 18px 40px rgba(3, 7, 18, 0.28);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.learning-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99, 91, 255, 0.14), rgba(26, 168, 223, 0.1), rgba(34, 211, 238, 0.08));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.learning-card:hover {
+    transform: translateY(-10px) scale(1.01);
+    border-color: rgba(99, 91, 255, 0.4);
+    box-shadow: 0 28px 60px rgba(99, 91, 255, 0.22) !important;
+}
+
+.learning-card:hover::before {
+    opacity: 1;
+}
+
+.learning-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.learning-icon {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    background: linear-gradient(135deg, rgba(99, 91, 255, 0.2), rgba(34, 211, 238, 0.18), rgba(168, 85, 247, 0.12));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.35s ease;
+}
+
+.learning-card:hover .learning-icon {
+    transform: scale(1.06);
+}
+
+.topic-badge {
+    display: inline-block;
+    padding: 7px 12px;
+    margin: 3px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(99, 91, 255, 0.18), rgba(34, 211, 238, 0.16));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #dfe7ff;
+    transition: all 0.3s ease;
+}
+
+.topic-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(99, 91, 255, 0.2);
+}
+
+.learning-detail-card {
+    max-width: 1000px;
+    margin: auto;
+    padding: 50px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(99, 91, 255, 0.06));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+.learning-detail-icon {
+    font-size: 90px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 12px 25px rgba(99, 91, 255, 0.3));
+}
+
+/* =========================================
+   ROADMAP
+========================================= */
+
+.roadmap {
+    position: relative;
+    margin-left: 15px;
+}
+
+.roadmap::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(99, 91, 255, 0.8), rgba(26, 168, 223, 0.28));
+    border-radius: 16px;
+}
+
+.roadmap-step {
+    position: relative;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-left: 5px;
+}
+
+.roadmap-number {
+    min-width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #635bff, #1aa8df);
+    color: white;
+    font-weight: bold;
+    z-index: 1;
+    box-shadow: 0 10px 18px rgba(99, 91, 255, 0.35);
+}
+
+.roadmap-topic {
+    padding: 15px 18px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(99, 91, 255, 0.1), rgba(26, 168, 223, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roadmap-topic:hover {
+    transform: translateX(8px);
+    box-shadow: 0 18px 30px rgba(99, 91, 255, 0.15);
+}
+
+.roadmap-topic span {
+    color: #8db8ff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.project-idea {
+    padding: 20px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.08), rgba(99, 91, 255, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-idea:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(20, 184, 166, 0.12);
+}
+
+/* =========================================
+   NEWS
+========================================= */
+
+.news-featured-card,
+.news-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    background: linear-gradient(160deg, rgba(14, 18, 35, 0.96), rgba(21, 27, 46, 0.88));
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.news-featured-card::before,
+.news-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.12), rgba(99, 91, 255, 0.1), rgba(34, 211, 238, 0.08));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.news-featured-card:hover,
+.news-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(244, 114, 182, 0.3);
+    box-shadow: 0 24px 50px rgba(99, 91, 255, 0.18) !important;
+}
+
+.news-featured-card:hover::before,
+.news-card:hover::before {
+    opacity: 1;
+}
+
+.news-featured-card > *,
+.news-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.news-image {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(34, 211, 238, 0.18));
+    transition: transform 0.35s ease;
+}
+
+.news-card:hover .news-image,
+.news-featured-card:hover .news-image,
+.news-card:hover .news-small-image,
+.news-featured-card:hover .news-small-image {
+    transform: scale(1.04);
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-small-image {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+    background: linear-gradient(135deg, rgba(90, 50, 200, 0.12), rgba(20, 150, 220, 0.12));
+    transition: transform 0.35s ease;
+}
+
+.news-small-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-detail {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery-card {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 24px;
+    cursor: pointer;
+    background: linear-gradient(135deg, rgba(99, 91, 255, 0.16), rgba(20, 150, 220, 0.12), rgba(168, 85, 247, 0.14));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+    transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(34, 211, 238, 0.35);
+    box-shadow: 0 24px 44px rgba(34, 211, 238, 0.18);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1);
+    filter: saturate(1.15) contrast(1.08);
+}
+
+.gallery-placeholder {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+}
+
+.gallery-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 25px;
+    color: white;
+    background: linear-gradient(transparent, rgba(5, 8, 18, 0.92));
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.35s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.92);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    max-width: 1000px;
+    width: 100%;
+    max-height: 90vh;
+    text-align: center;
+    padding: 20px;
+    border-radius: 24px;
+    background: rgba(15, 23, 42, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 65vh;
+    border-radius: 15px;
+    object-fit: contain;
+    box-shadow: 0 18px 30px rgba(99, 91, 255, 0.2);
+}
+
+.lightbox-info {
+    color: white;
+    margin-top: 20px;
+}
+
+
+
+.lightbox-close {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 30px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 50px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .learning-detail-card {
+
+        padding: 25px;
+    }
+
+
+    .gallery-card {
+
+        height: 240px;
+    }
+
+
+    .roadmap {
+
+        margin-left: 0;
+    }
+
+}

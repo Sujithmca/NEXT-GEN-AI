@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block title %}
+Gallery | NextGenAI
+{% endblock %}
+
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-primary px-3 py-2">
+
+            NEXTGENAI MOMENTS
+
+        </span>
+
+
+        <h1 class="display-4 fw-bold mt-3">
+
+            Our
+            <span class="text-primary">
+                Gallery
+            </span>
+
+        </h1>
+
+
+        <p class="text-secondary">
+
+            Explore moments from workshops,
+            hackathons, projects and club activities.
+
+        </p>
+
+    </div>
+
+
+    <!-- CATEGORY FILTER -->
+
+    <div class="text-center mb-5">
+
+        <a
+            href="{% url 'gallery:gallery' %}"
+            class="btn
+            {% if not selected_category %}
+                btn-primary
+            {% else %}
+                btn-outline-primary
+            {% endif %}
+            me-2 mb-2"
+        >
+
+            All
+
+        </a>
+
+
+        {% for category in categories %}
+
+        <a
+            href="?category={{ category }}"
+            class="btn
+            {% if selected_category == category %}
+                btn-primary
+            {% else %}
+                btn-outline-primary
+            {% endif %}
+            me-2 mb-2"
+        >
+
+            {{ category }}
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- GALLERY -->
+
+    <div class="row g-4">
+
+        {% for item in gallery %}
+
+        <div class="col-xl-4 col-lg-4 col-md-6">
+
+            <div
+                class="gallery-card"
+                onclick="openLightbox(
+                    '{{ item.image }}',
+                    '{{ item.title|escapejs }}',
+                    '{{ item.description|escapejs }}'
+                )"
+            >
+
+                {% if item.image %}
+
+                <img
+                    src="{{ item.image }}"
+                    alt="{{ item.title }}"
+                >
+
+                {% else %}
+
+                <div class="gallery-placeholder">
+
+                    📸
+
+                </div>
+
+                {% endif %}
+
+
+                <div class="gallery-overlay">
+
+                    <span class="badge bg-primary">
+
+                        {{ item.category }}
+
+                    </span>
+
+
+                    <h4>
+
+                        {{ item.title }}
+
+                    </h4>
+
+
+                    <p>
+
+                        {{ item.date }}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {% empty %}
+
+        <div class="text-center py-5">
+
+            <h4>
+                No gallery images found.
+            </h4>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<!-- LIGHTBOX -->
+
+<div
+    id="galleryLightbox"
+    class="gallery-lightbox"
+>
+
+    <button
+        class="lightbox-close"
+        onclick="closeLightbox()"
+    >
+
+        ×
+
+    </button>
+
+
+    <div class="lightbox-content">
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
+        >
+
+
+        <div class="lightbox-info">
+
+            <h3 id="lightboxTitle"></h3>
+
+            <p id="lightboxDescription"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

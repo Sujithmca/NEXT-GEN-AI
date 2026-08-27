@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "First Prize - AI Hackathon",
+        "description": "NextGenAI team secured first place in an inter-college AI hackathon.",
+        "category": "Hackathon",
+        "student_name": "AI Innovators",
+        "date": "2026-06-15",
+        "image": "",
+        "certificate_url": "#"
+    },
+    {
+        "id": 2,
+        "title": "Best Project Award",
+        "description": "Student team received the Best Project Award for an innovative Generative AI application.",
+        "category": "Project",
+        "student_name": "NextGenAI Team",
+        "date": "2026-05-20",
+        "image": "",
+        "certificate_url": "#"
+    },
+    {
+        "id": 3,
+        "title": "AI Research Presentation",
+        "description": "Students presented their research work at a technology symposium.",
+        "category": "Research",
+        "student_name": "AI Research Team",
+        "date": "2026-04-10",
+        "image": "",
+        "certificate_url": "#"
+    }
+]

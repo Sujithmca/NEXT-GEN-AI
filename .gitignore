@@ -1,0 +1,24 @@
+# Environment secrets
+.env
+*.env
+
+# Local databases and runtime files
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
+__pycache__/
+*.py[cod]
+
+# Django uploads and local generated media
+media/*
+!media/.gitkeep
+
+# Local tooling
+.vscode/
+.idea/
+*.log
+
+# Temporary files
+*.tmp
+*.bak

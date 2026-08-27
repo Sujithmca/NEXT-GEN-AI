@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "NextGenAI Club Successfully Launched",
+        "description": "NextGenAI officially begins its journey to promote AI learning, innovation and student collaboration.",
+        "category": "Club News",
+        "date": "2026-08-01",
+        "author": "NextGenAI Team",
+        "image": "",
+        "is_featured": true
+    },
+    {
+        "id": 2,
+        "title": "Generative AI Workshop",
+        "description": "A hands-on workshop covering prompt engineering, AI APIs and Generative AI applications.",
+        "category": "Workshop",
+        "date": "2026-08-10",
+        "author": "Technical Team",
+        "image": "",
+        "is_featured": true
+    },
+    {
+        "id": 3,
+        "title": "AI Hackathon Registration Open",
+        "description": "Students can now register for the upcoming inter-department AI hackathon.",
+        "category": "Hackathon",
+        "date": "2026-08-15",
+        "author": "Event Team",
+        "image": "",
+        "is_featured": false
+    },
+    {
+        "id": 4,
+        "title": "New Learning Resources Added",
+        "description": "New AI, Python, Django and Machine Learning resources have been added to the Learning Hub.",
+        "category": "Announcement",
+        "date": "2026-08-18",
+        "author": "Learning Team",
+        "image": "",
+        "is_featured": false
+    }
+]

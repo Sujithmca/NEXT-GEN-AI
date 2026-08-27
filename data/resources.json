@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "Python Official Documentation",
+        "description": "Complete Python documentation for learning programming and development.",
+        "category": "Python",
+        "resource_type": "Documentation",
+        "url": "https://docs.python.org/3/",
+        "thumbnail": ""
+    },
+    {
+        "id": 2,
+        "title": "Django Documentation",
+        "description": "Official Django documentation for web development.",
+        "category": "Web Development",
+        "resource_type": "Documentation",
+        "url": "https://docs.djangoproject.com/",
+        "thumbnail": ""
+    },
+    {
+        "id": 3,
+        "title": "Machine Learning Roadmap",
+        "description": "A structured roadmap for beginners starting their machine learning journey.",
+        "category": "Machine Learning",
+        "resource_type": "Roadmap",
+        "url": "#",
+        "thumbnail": ""
+    },
+    {
+        "id": 4,
+        "title": "Generative AI Learning Guide",
+        "description": "Learn the fundamentals of Generative AI and prompt engineering.",
+        "category": "Generative AI",
+        "resource_type": "Course",
+        "url": "#",
+        "thumbnail": ""
+    },
+    {
+        "id": 5,
+        "title": "GitHub",
+        "description": "Platform for hosting code, collaborating and managing software projects.",
+        "category": "Web Development",
+        "resource_type": "Coding Platform",
+        "url": "https://github.com/",
+        "thumbnail": ""
+    }
+]

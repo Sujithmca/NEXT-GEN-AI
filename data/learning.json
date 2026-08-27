@@ -1,0 +1,205 @@
+[
+    {
+        "id": 1,
+        "title": "Artificial Intelligence",
+        "description": "Learn the fundamentals of Artificial Intelligence and intelligent systems.",
+        "icon": "🤖",
+        "level": "Beginner",
+        "topics": [
+            "AI Fundamentals",
+            "Intelligent Agents",
+            "Search Algorithms",
+            "Knowledge Representation"
+        ],
+        "roadmap": [
+            "Learn Python",
+            "Understand Mathematics",
+            "Learn Machine Learning",
+            "Build AI Projects"
+        ],
+        "project_ideas": [
+            "AI Chatbot",
+            "Smart Recommendation System",
+            "AI Study Assistant"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Machine Learning",
+        "description": "Explore supervised, unsupervised and reinforcement learning concepts.",
+        "icon": "🧠",
+        "level": "Intermediate",
+        "topics": [
+            "Regression",
+            "Classification",
+            "Clustering",
+            "Model Evaluation"
+        ],
+        "roadmap": [
+            "Python",
+            "NumPy & Pandas",
+            "Statistics",
+            "Machine Learning",
+            "Model Deployment"
+        ],
+        "project_ideas": [
+            "Student Performance Predictor",
+            "Spam Detection",
+            "House Price Prediction"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Generative AI",
+        "description": "Learn how modern Generative AI systems, LLMs and prompt engineering work.",
+        "icon": "✨",
+        "level": "Intermediate",
+        "topics": [
+            "LLMs",
+            "Prompt Engineering",
+            "AI APIs",
+            "RAG",
+            "AI Agents"
+        ],
+        "roadmap": [
+            "Python",
+            "AI Fundamentals",
+            "LLM Concepts",
+            "Prompt Engineering",
+            "AI API Integration"
+        ],
+        "project_ideas": [
+            "AI Travel Assistant",
+            "AI Notes Generator",
+            "AI Interview Coach"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Python Development",
+        "description": "Master Python programming from fundamentals to application development.",
+        "icon": "🐍",
+        "level": "Beginner",
+        "topics": [
+            "Variables",
+            "Loops",
+            "Functions",
+            "OOP",
+            "Modules"
+        ],
+        "roadmap": [
+            "Python Basics",
+            "OOP",
+            "File Handling",
+            "APIs",
+            "Django"
+        ],
+        "project_ideas": [
+            "Student Management System",
+            "Expense Tracker",
+            "Quiz Application"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Web Development",
+        "description": "Learn frontend and backend web development.",
+        "icon": "🌐",
+        "level": "Beginner",
+        "topics": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Django",
+            "REST APIs"
+        ],
+        "roadmap": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Python",
+            "Django",
+            "Deployment"
+        ],
+        "project_ideas": [
+            "Portfolio Website",
+            "Club Website",
+            "E-Commerce Website"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Data Science",
+        "description": "Learn how to collect, analyze and visualize data.",
+        "icon": "📊",
+        "level": "Intermediate",
+        "topics": [
+            "NumPy",
+            "Pandas",
+            "Data Visualization",
+            "Statistics"
+        ],
+        "roadmap": [
+            "Python",
+            "Statistics",
+            "Pandas",
+            "Visualization",
+            "Machine Learning"
+        ],
+        "project_ideas": [
+            "Student Analytics",
+            "Sales Dashboard",
+            "Movie Recommendation"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Cloud Computing",
+        "description": "Understand cloud platforms, deployment and scalable applications.",
+        "icon": "☁️",
+        "level": "Intermediate",
+        "topics": [
+            "Cloud Fundamentals",
+            "Virtual Machines",
+            "Storage",
+            "Deployment"
+        ],
+        "roadmap": [
+            "Cloud Basics",
+            "Linux",
+            "Networking",
+            "AWS/Azure",
+            "Deployment"
+        ],
+        "project_ideas": [
+            "Cloud Portfolio",
+            "Cloud File Storage",
+            "Web App Deployment"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Cybersecurity",
+        "description": "Understand the fundamentals of application and network security.",
+        "icon": "🔐",
+        "level": "Intermediate",
+        "topics": [
+            "Networking",
+            "Authentication",
+            "Encryption",
+            "Web Security"
+        ],
+        "roadmap": [
+            "Networking",
+            "Linux",
+            "Security Fundamentals",
+            "Web Security",
+            "Ethical Hacking"
+        ],
+        "project_ideas": [
+            "Password Strength Checker",
+            "Secure Login System",
+            "Network Monitor"
+        ]
+    }
+]

@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}My Profile | NextGenAI{% endblock %}
+{% block content %}
+<section class="auth-shell"><div class="auth-card profile-card"><span class="auth-kicker">NEXTGENAI / MEMBER PROFILE</span><h1>{{ member.full_name }}</h1><p class="profile-handle">@{{ member.username }} <span class="role-chip">{{ member.role }}</span></p><div class="profile-grid"><div><small>Email</small><strong>{{ member.email }}</strong></div><div><small>Phone</small><strong>{{ member.phone }}</strong></div><div><small>Department</small><strong>{{ member.department }}</strong></div><div><small>Year</small><strong>{{ member.year }}</strong></div><div><small>Joined</small><strong>{{ member.created_at|date:"M d, Y" }}</strong></div></div><form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button class="auth-submit" type="submit">Log out</button></form></div></section>
++{% endblock %}

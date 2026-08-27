@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "title": "NextGenAI Launch Event",
+        "description": "Official launch of the NextGenAI technology club.",
+        "category": "Events",
+        "date": "2026-08-01",
+        "image": ""
+    },
+    {
+        "id": 2,
+        "title": "Generative AI Workshop",
+        "description": "Students participating in a hands-on Generative AI workshop.",
+        "category": "Workshop",
+        "date": "2026-08-10",
+        "image": ""
+    },
+    {
+        "id": 3,
+        "title": "Project Demonstration",
+        "description": "Students demonstrating their AI projects.",
+        "category": "Projects",
+        "date": "2026-08-12",
+        "image": ""
+    },
+    {
+        "id": 4,
+        "title": "Hackathon Team",
+        "description": "NextGenAI students participating in a hackathon.",
+        "category": "Hackathon",
+        "date": "2026-08-15",
+        "image": ""
+    },
+    {
+        "id": 5,
+        "title": "Technical Session",
+        "description": "Technical learning session conducted by the club.",
+        "category": "Workshop",
+        "date": "2026-08-17",
+        "image": ""
+    },
+    {
+        "id": 6,
+        "title": "Team Discussion",
+        "description": "Students collaborating on innovative technology projects.",
+        "category": "Club Activities",
+        "date": "2026-08-18",
+        "image": ""
+    }
+]

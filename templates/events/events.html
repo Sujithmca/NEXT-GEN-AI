@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}Events | NextGenAI{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge rounded-pill bg-primary px-3 py-2">
+            NEXTGENAI EVENTS
+        </span>
+
+        <h1 class="display-4 fw-bold mt-3">
+            Explore Our <span class="text-primary">Events</span>
+        </h1>
+
+        <p class="text-secondary">
+            Workshops, hackathons, seminars and technology events.
+        </p>
+
+    </div>
+
+
+    <!-- UPCOMING -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+            Upcoming Events
+        </h2>
+
+    </div>
+
+
+    <div class="row g-4">
+
+        {% for event in upcoming_events %}
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card h-100 border-0 shadow-lg event-card">
+
+                {% if event.banner_image %}
+
+                <img
+                    src="{{ event.banner_image }}"
+                    class="card-img-top"
+                    style="height:220px;object-fit:cover;"
+                    alt="{{ event.title }}"
+                >
+
+                {% else %}
+
+                <div
+                    class="bg-primary text-white d-flex
+                           align-items-center justify-content-center"
+                    style="height:220px;"
+                >
+                    <span style="font-size:60px;">🤖</span>
+                </div>
+
+                {% endif %}
+
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-primary mb-3">
+                        {{ event.category }}
+                    </span>
+
+                    <h4 class="fw-bold">
+                        {{ event.title }}
+                    </h4>
+
+                    <p class="text-secondary">
+                        {{ event.description }}
+                    </p>
+
+                    <div class="small mb-2">
+                        📅 {{ event.date }}
+                    </div>
+
+                    <div class="small mb-2">
+                        ⏰ {{ event.start_time }} -
+                        {{ event.end_time }}
+                    </div>
+
+                    <div class="small mb-3">
+                        📍 {{ event.venue }}
+                    </div>
+
+                    <div class="d-flex gap-2">
+
+                        <a
+                            href="{% url 'events:detail' event.id %}"
+                            class="btn btn-outline-primary"
+                        >
+                            Details
+                        </a>
+
+                        <a
+                            href="{% url 'events:register' event.id %}"
+                            class="btn btn-primary"
+                        >
+                            Register
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12 text-center">
+            <p>No upcoming events.</p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- PAST EVENTS -->
+
+    <div class="mt-5 pt-5">
+
+        <h2 class="fw-bold mb-4">
+            Past Events
+        </h2>
+
+        <div class="row g-4">
+
+            {% for event in past_events %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card h-100 border-0 shadow event-card">
+
+                    <div class="card-body p-4">
+
+                        <span class="badge bg-secondary mb-3">
+                            {{ event.category }}
+                        </span>
+
+                        <h4 class="fw-bold">
+                            {{ event.title }}
+                        </h4>
+
+                        <p class="text-secondary">
+                            {{ event.description }}
+                        </p>
+
+                        <p>
+                            📅 {{ event.date }}
+                        </p>
+
+                        <a
+                            href="{% url 'events:detail' event.id %}"
+                            class="btn btn-outline-primary"
+                        >
+                            View Event
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+                <p>No past events.</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

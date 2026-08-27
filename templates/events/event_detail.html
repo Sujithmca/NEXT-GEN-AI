@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}{{ event.title }} | NextGenAI{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="card border-0 shadow-lg overflow-hidden">
+
+        {% if event.banner_image %}
+
+        <img
+            src="{{ event.banner_image }}"
+            style="height:400px;object-fit:cover;"
+            alt="{{ event.title }}"
+        >
+
+        {% endif %}
+
+
+        <div class="card-body p-5">
+
+            <span class="badge bg-primary mb-3">
+                {{ event.category }}
+            </span>
+
+            <h1 class="display-5 fw-bold">
+                {{ event.title }}
+            </h1>
+
+            <p class="lead text-secondary mt-3">
+                {{ event.description }}
+            </p>
+
+
+            <div class="row mt-4">
+
+                <div class="col-md-3">
+                    <strong>📅 Date</strong>
+                    <p>{{ event.date }}</p>
+                </div>
+
+                <div class="col-md-3">
+                    <strong>⏰ Time</strong>
+                    <p>
+                        {{ event.start_time }} -
+                        {{ event.end_time }}
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <strong>📍 Venue</strong>
+                    <p>{{ event.venue }}</p>
+                </div>
+
+                <div class="col-md-3">
+                    <strong>🏷 Category</strong>
+                    <p>{{ event.category }}</p>
+                </div>
+
+            </div>
+
+
+            {% if event.is_upcoming %}
+
+<div class="mt-5 text-center">
+
+    <h3 class="fw-bold">
+        NextGenAI Event Starts In
+    </h3>
+
+    <div
+        id="countdown"
+        class="row justify-content-center mt-4"
+        data-date="{{ event.date }}"
+        data-time="{{ event.start_time }}"
+    >
+
+        <div class="col-3 col-md-2">
+            <div class="p-3 rounded shadow">
+                <h2 id="days">00</h2>
+                <small>Days</small>
+            </div>
+        </div>
+
+        <div class="col-3 col-md-2">
+            <div class="p-3 rounded shadow">
+                <h2 id="hours">00</h2>
+                <small>Hours</small>
+            </div>
+        </div>
+
+        <div class="col-3 col-md-2">
+            <div class="p-3 rounded shadow">
+                <h2 id="minutes">00</h2>
+                <small>Minutes</small>
+            </div>
+        </div>
+
+        <div class="col-3 col-md-2">
+            <div class="p-3 rounded shadow">
+                <h2 id="seconds">00</h2>
+                <small>Seconds</small>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+{% load static %}
+
+<script src="{% static 'js/events.js' %}"></script>

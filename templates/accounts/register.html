@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Join NextGenAI{% endblock %}
+{% block content %}
+<section class="auth-shell">
+  <div class="auth-orbit orbit-one"></div><div class="auth-orbit orbit-two"></div>
+  <div class="auth-card auth-card-wide">
+    <div class="auth-intro"><span class="auth-kicker">NEXTGENAI / MEMBERSHIP</span><h1>Build. Innovate. Inspire.</h1><p>Join a community shaping useful technology together.</p></div>
+    <div id="formMessage" class="auth-message" hidden></div>
+    <form id="registerForm" method="post" novalidate>
+      {% csrf_token %}
+      <div class="auth-grid">
+        <div class="auth-field field-span-2"><label for="id_full_name">Full name</label><input id="id_full_name" name="full_name" required maxlength="100" autocomplete="name"><small data-error-for="full_name"></small></div>
+        <div class="auth-field"><label for="id_username">Username</label><input id="id_username" name="username" required maxlength="30" autocomplete="username"><small data-error-for="username"></small></div>
+        <div class="auth-field"><label for="id_email">Email</label><input id="id_email" name="email" type="email" required autocomplete="email"><small data-error-for="email"></small></div>
+        <div class="auth-field"><label for="id_phone">Phone number</label><input id="id_phone" name="phone" inputmode="numeric" pattern="[0-9]{10,15}" required autocomplete="tel"><small data-error-for="phone"></small></div>
+        <div class="auth-field"><label for="id_department">Department</label><select id="id_department" name="department" required><option value="">Select department</option>{% for department in departments %}<option value="{{ department }}">{{ department }}</option>{% endfor %}</select><small data-error-for="department"></small></div>
+        <div class="auth-field"><label for="id_year">Year of study</label><select id="id_year" name="year" required><option value="">Select year</option>{% for year in years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}</select><small data-error-for="year"></small></div>
+        <div class="auth-field"><label for="id_password">Password</label><div class="password-wrap"><input id="id_password" name="password" type="password" required autocomplete="new-password"><button type="button" class="password-toggle" data-target="id_password" aria-label="Show password">Show</button></div><small data-error-for="password"></small></div>
+        <div class="auth-field"><label for="id_confirm_password">Confirm password</label><div class="password-wrap"><input id="id_confirm_password" name="confirm_password" type="password" required autocomplete="new-password"><button type="button" class="password-toggle" data-target="id_confirm_password" aria-label="Show password">Show</button></div><small data-error-for="confirm_password"></small></div>
+      </div>
+      <button class="auth-submit" type="submit"><span class="button-label">Create account</span><span class="button-loading" hidden>Creating account...</span></button>
+    </form>
+    <p class="auth-footer">Already a member? <a href="{% url 'accounts:login' %}">Log in</a></p>
+  </div>
+</section>
+<script>
+(() => {
+  const form = document.getElementById('registerForm');
+  const message = document.getElementById('formMessage');
+  const submit = form.querySelector('.auth-submit');
+  const showMessage = (text, kind) => { message.textContent = text; message.className = `auth-message ${kind}`; message.hidden = false; };
+  const clearErrors = () => form.querySelectorAll('[data-error-for]').forEach((node) => { node.textContent = ''; node.closest('.auth-field').classList.remove('has-error'); });
+  form.querySelectorAll('.password-toggle').forEach((button) => button.addEventListener('click', () => { const input = document.getElementById(button.dataset.target); input.type = input.type === 'password' ? 'text' : 'password'; button.textContent = input.type === 'password' ? 'Show' : 'Hide'; }));
+  form.addEventListener('submit', async (event) => { event.preventDefault(); clearErrors(); message.hidden = true; const data = new FormData(form); const password = data.get('password'); const errors = {}; if (password.length < 8 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/\d/.test(password) || !/[^A-Za-z0-9]/.test(password)) errors.password = 'Use 8+ characters with uppercase, lowercase, number, and special character.'; if (password !== data.get('confirm_password')) errors.confirm_password = 'Passwords do not match.'; if (!/^\d{10,15}$/.test(data.get('phone'))) errors.phone = 'Enter 10-15 digits only.'; if (Object.keys(errors).length) { Object.entries(errors).forEach(([key, value]) => { const node = form.querySelector(`[data-error-for="${key}"]`); node.textContent = value; node.closest('.auth-field').classList.add('has-error'); }); return; } submit.disabled = true; submit.querySelector('.button-label').hidden = true; submit.querySelector('.button-loading').hidden = false; try { const response = await fetch('', { method: 'POST', body: data, headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' } }); const result = await response.json(); if (!response.ok) { Object.entries(result.errors || {}).forEach(([key, value]) => { const node = form.querySelector(`[data-error-for="${key}"]`); if (node) { node.textContent = value; node.closest('.auth-field').classList.add('has-error'); } }); showMessage('Please correct the highlighted fields.', 'error'); return; } showMessage(result.message, 'success'); setTimeout(() => { window.location.href = '{% url "accounts:login" %}'; }, 700); } catch (error) { showMessage('Unable to complete registration right now.', 'error'); } finally { submit.disabled = false; submit.querySelector('.button-label').hidden = false; submit.querySelector('.button-loading').hidden = true; } });
+})();
+</script>
+{% endblock %}

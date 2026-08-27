@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-lg rounded-4">
+
+                <div class="card-body p-4 p-md-5">
+
+                    <h2 class="fw-bold mb-4">
+                        {{ title }}
+                    </h2>
+
+
+                    <form method="POST"
+                          enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+
+                        <!-- NAME -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Name
+                            </label>
+
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                value="{{ item.name|default:'' }}"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- ROLE -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Role
+                            </label>
+
+                            <input
+                                type="text"
+                                name="role"
+                                class="form-control"
+                                value="{{ item.role|default:'' }}"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- DEPARTMENT -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Department
+                            </label>
+
+                            <input
+                                type="text"
+                                name="department"
+                                class="form-control"
+                                value="{{ item.department|default:'' }}"
+                            >
+
+                        </div>
+
+
+                        <!-- BIO -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Bio
+                            </label>
+
+                            <textarea
+                                name="bio"
+                                class="form-control"
+                                rows="4"
+                            >{{ item.bio|default:'' }}</textarea>
+
+                        </div>
+
+
+                        <!-- PROFILE PHOTO -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Profile Photo
+                            </label>
+
+                            <input
+                                type="file"
+                                name="profile_image"
+                                class="form-control"
+                                accept=".jpg,.jpeg,.png,.webp"
+                            >
+
+                            <small class="text-muted">
+                                JPG, JPEG, PNG or WEBP — Maximum 2 MB
+                            </small>
+
+                        </div>
+
+
+                        {% if item.profile_image %}
+
+                        <div class="mb-3">
+
+                            <p class="fw-semibold">
+                                Current Photo
+                            </p>
+
+                            <img
+                                src="{{ MEDIA_URL }}{{ item.profile_image }}"
+                                alt="{{ item.name }}"
+                                width="120"
+                                height="120"
+                                style="
+                                    object-fit: cover;
+                                    border-radius: 50%;
+                                "
+                            >
+
+                        </div>
+
+                        {% endif %}
+
+
+                        <!-- LINKEDIN -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                LinkedIn
+                            </label>
+
+                            <input
+                                type="url"
+                                name="linkedin"
+                                class="form-control"
+                                value="{{ item.linkedin|default:'' }}"
+                            >
+
+                        </div>
+
+
+                        <!-- GITHUB -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                GitHub
+                            </label>
+
+                            <input
+                                type="url"
+                                name="github"
+                                class="form-control"
+                                value="{{ item.github|default:'' }}"
+                            >
+
+                        </div>
+
+
+                        <!-- ACTIVE -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Active Status
+                            </label>
+
+                            <select
+                                name="is_active"
+                                class="form-select"
+                            >
+
+                                <option
+                                    value="true"
+                                    {% if item.is_active == "true" %}
+                                    selected
+                                    {% endif %}
+                                >
+                                    Active
+                                </option>
+
+                                <option
+                                    value="false"
+                                    {% if item.is_active == "false" %}
+                                    selected
+                                    {% endif %}
+                                >
+                                    Inactive
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="d-flex gap-2 mt-4">
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary px-4"
+                            >
+                                Save Team Member
+                            </button>
+
+                            <a
+                                href="{% url 'management:team_list' %}"
+                                class="btn btn-outline-secondary"
+                            >
+                                Cancel
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

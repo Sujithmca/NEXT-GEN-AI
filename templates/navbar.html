@@ -1,0 +1,163 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top nextgen-navbar">
+
+    <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand nextgen-brand" href="/">
+
+            <span class="brand-logo">
+                <i class="bi bi-cpu-fill"></i>
+            </span>
+
+            <span>
+                NextGen<span>AI</span>
+            </span>
+
+        </a>
+
+
+        <!-- Mobile Toggle -->
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <!-- Navigation -->
+        <div
+            class="collapse navbar-collapse"
+            id="mainNavbar"
+        >
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" data-nav-key="home" href="{% url 'home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-nav-key="about" href="{% url 'home' %}#about">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-nav-key="team" href="{% url 'team:team' %}">
+                        Team
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-nav-key="events" href="{% url 'events:events' %}">
+                        Events
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-nav-key="projects" href="{% url 'projects:projects' %}">
+                        Projects
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-nav-key="achievements" href="{% url 'projects:achievements' %}">
+                        Achievements
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-nav-key="resources" href="{% url 'resources:resources' %}">
+                        Resources
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-nav-key="contact" href="{% url 'home' %}#contact">
+                        Contact
+                    </a>
+                </li>
+
+                {% if request.session.role == "admin" %}
+                <li class="nav-item">
+                    <a class="nav-link" data-nav-key="dashboard" href="{% url 'management:dashboard' %}">
+                        Dashboard
+                    </a>
+                </li>
+                {% endif %}
+
+            </ul>
+
+
+            <!-- Right Controls -->
+            <div class="navbar-actions">
+
+                <button
+                    id="searchToggle"
+                    class="nav-icon-btn"
+                    title="Search"
+                    aria-label="Search NextGenAI"
+                    aria-expanded="false"
+                >
+                    <i class="bi bi-search"></i>
+                </button>
+
+
+                <button
+                    id="themeToggle"
+                    class="nav-icon-btn"
+                    title="Change Theme"
+                    aria-label="Switch color theme"
+                >
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+
+
+                {% if request.session.member_id %}
+                    <a href="{% url 'accounts:profile' %}" class="btn btn-outline-light nav-login-btn">Profile</a>
+                    <form method="post" action="{% url 'accounts:logout' %}" class="navbar-logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-light nav-login-btn">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'accounts:login' %}" class="btn btn-outline-light nav-login-btn">Login</a>
+                {% endif %}
+
+                {% if request.session.member_id and not request.session.joined_club %}
+                    <form method="post" action="{% url 'community:join' %}" class="navbar-join-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary nav-join-btn">Join Club</button>
+                    </form>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<div id="searchPanel" class="search-panel" hidden>
+    <div class="search-panel-inner" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+        <div class="search-panel-header">
+            <h2 id="searchTitle">Search NextGenAI</h2>
+            <button id="searchClose" type="button" class="search-close" aria-label="Close search"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <form id="searchForm" class="search-form" role="search">
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input id="searchInput" type="search" placeholder="Search events, projects, team..." autocomplete="off">
+        </form>
+        <div id="searchResults" class="search-results" aria-live="polite"></div>
+    </div>
+</div>

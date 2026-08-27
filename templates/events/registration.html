@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}Register | {{ event.title }}{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="card border-0 shadow-lg">
+
+                <div class="card-body p-5">
+
+                    <div class="text-center mb-4">
+
+                        <span class="badge bg-primary">
+                            EVENT REGISTRATION
+                        </span>
+
+                        <h2 class="fw-bold mt-3">
+                            {{ event.title }}
+                        </h2>
+
+                        <p class="text-secondary">
+                            Register for this NextGenAI event.
+                        </p>
+
+                    </div>
+
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Student Name
+                            </label>
+
+                            <input
+                                type="text"
+                                name="student_name"
+                                class="form-control"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="student@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Phone
+                            </label>
+
+                            <input
+                                type="tel"
+                                name="phone"
+                                class="form-control"
+                                placeholder="10 digit mobile number"
+                                pattern="[0-9]{10}"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Department
+                            </label>
+
+                            <input
+                                type="text"
+                                name="department"
+                                class="form-control"
+                                placeholder="MCA / MSc / BCA..."
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Year
+                            </label>
+
+                            <select
+                                name="year"
+                                class="form-select"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Year
+                                </option>
+
+                                <option value="1st Year">
+                                    1st Year
+                                </option>
+
+                                <option value="2nd Year">
+                                    2nd Year
+                                </option>
+
+                                <option value="3rd Year">
+                                    3rd Year
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary w-100 py-3"
+                        >
+                            🚀 Complete Registration
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
