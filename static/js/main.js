@@ -56,7 +56,7 @@ document.addEventListener(
                 "'": "&#039;"
             }[character]));
             if (!results.length) {
-                searchResults.innerHTML = `<p class="search-empty">No results found for “${escapeHtml(query)}”.</p>`;
+                searchResults.innerHTML = `<p class="search-empty">No results found for &quot;${escapeHtml(query)}&quot;.</p>`;
                 return;
             }
             searchResults.innerHTML = results.map((result) => `<article class="search-result"><span>${escapeHtml(result.category)}</span><h3>${escapeHtml(result.title)}</h3><p>${escapeHtml(result.description)}</p></article>`).join("");

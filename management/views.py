@@ -962,6 +962,14 @@ def registrations(request):
         "registrations.json"
     )
 
+    return render(
+        request,
+        "management/registrations.html",
+        {
+            "registrations": data
+        }
+    )
+
 
 @admin_required
 def member_detail(request, member_id):
@@ -983,15 +991,6 @@ def member_detail(request, member_id):
         "management/member_detail.html",
         {"member": public_member(member)},
     )
-
-    return render(
-        request,
-        "management/registrations.html",
-        {
-            "registrations": data
-        }
-    )
-
 
 # =========================================================
 # DASHBOARD API

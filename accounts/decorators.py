@@ -24,7 +24,7 @@ def admin_required_custom(view_func):
     @wraps(view_func)
     @login_required_custom
     def wrapper(request, *args, **kwargs):
-        if request.session.get("role") != "admin":
+        if request.session.get("role") != "admin" or not request.session.get("admin_authenticated"):
             return render(request, "management/access_denied.html", status=403)
         return view_func(request, *args, **kwargs)
 

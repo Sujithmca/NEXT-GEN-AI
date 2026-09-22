@@ -11,12 +11,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import copy
+import os
 from pathlib import Path
 
 from django.template.context import BaseContext, Context
+from django.core.exceptions import ImproperlyConfigured
 
 from dotenv import load_dotenv
-import os
 
 
 
@@ -67,13 +68,28 @@ GROQ_MODEL = (
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m_t@&gh+v#fn^7ea=4ycq+69t%8&x1c2ov@x0=x7*gw$*_*jq('
+# SECURITY WARNING: keep the secret key used in production!
+# Set DEBUG=False in the deployment environment.
+DEBUG = os.getenv("DEBUG", "True").strip().lower() in {"1", "true", "yes", "on"}
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY") or os.getenv("SECRET_KEY")
+if not SECRET_KEY:
+    if DEBUG:
+        SECRET_KEY = "django-insecure-local-development-key"
+    else:
+        raise ImproperlyConfigured("Set DJANGO_SECRET_KEY or SECRET_KEY in the environment.")
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.getenv("ALLOWED_HOSTS", "").split(",")
+    if host.strip()
+]
+
+if os.getenv("RENDER_EXTERNAL_HOSTNAME"):
+    ALLOWED_HOSTS.append(os.environ["RENDER_EXTERNAL_HOSTNAME"])
+
+if DEBUG and not ALLOWED_HOSTS:
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1", "testserver"]
 
 
 # Application definition

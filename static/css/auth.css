@@ -1,6 +1,6 @@
 body { background: var(--background-color); }
-.auth-shell { min-height: 100vh; padding: 140px 20px 80px; position: relative; overflow: hidden; background: radial-gradient(circle at 15% 20%, rgba(245, 185, 66, .16), transparent 32%), radial-gradient(circle at 85% 75%, rgba(200, 135, 40, .16), transparent 30%), var(--background-color); color: var(--text-primary-color); }
-.auth-card { width: min(100%, 880px); margin: auto; padding: clamp(28px, 5vw, 58px); position: relative; z-index: 1; border: 1px solid var(--border-color); border-radius: var(--radius-card); background: rgba(10, 16, 32, .82); box-shadow: var(--shadow-card); backdrop-filter: blur(20px); }
+.auth-shell { min-height: 100vh; padding: 120px 20px 70px; position: relative; overflow: hidden; background: radial-gradient(circle at 15% 20%, rgba(245, 185, 66, .1), transparent 28%), radial-gradient(circle at 85% 75%, rgba(200, 135, 40, .1), transparent 26%), var(--background-color); color: var(--text-primary-color); }
+.auth-card { width: min(100%, 880px); margin: auto; padding: clamp(28px, 5vw, 52px); position: relative; z-index: 1; border: 1px solid var(--border-color); border-radius: var(--radius-card); background: rgba(11, 29, 53, .9); box-shadow: var(--shadow-card); backdrop-filter: blur(14px); }
 .auth-login-card { max-width: 520px; }
 .auth-intro { margin-bottom: 30px; }
 .auth-kicker { color: var(--primary-color); font-size: 11px; font-weight: 800; letter-spacing: 2px; }

@@ -1,4 +1,4 @@
-from django.contrib.auth import logout as django_logout
+from django.contrib.auth import authenticate, logout as django_logout
 from django.core.cache import cache
 from django.core.validators import validate_email
 from django.http import JsonResponse
@@ -24,6 +24,7 @@ from .utils import (
 
 DEPARTMENTS = ["MCA", "M.Sc Computer Science", "BCA", "B.Sc Computer Science", "Other"]
 YEARS = ["I Year", "II Year", "III Year", "IV Year"]
+MEMBER_TYPES = ["Student", "Teacher"]
 MAX_LOGIN_ATTEMPTS = 5
 LOGIN_WINDOW_SECONDS = 300
 
@@ -45,9 +46,9 @@ def register(request):
 	if request.session.get("member_id"):
 		return redirect("/")
 	if request.method == "GET":
-		return render(request, "accounts/register.html", {"departments": DEPARTMENTS, "years": YEARS})
+		return render(request, "accounts/register.html", {"departments": DEPARTMENTS, "years": YEARS, "member_types": MEMBER_TYPES})
 
-	values = {key: request.POST.get(key, "").strip() for key in ("full_name", "username", "email", "phone", "department", "year")}
+	values = {key: request.POST.get(key, "").strip() for key in ("full_name", "username", "email", "phone", "department", "year", "member_type")}
 	password = request.POST.get("password", "")
 	confirm_password = request.POST.get("confirm_password", "")
 	errors = {}
@@ -70,6 +71,8 @@ def register(request):
 		errors["department"] = "Choose a valid department."
 	if values["year"] not in YEARS:
 		errors["year"] = "Choose a valid year of study."
+	if values["member_type"] not in MEMBER_TYPES:
+		errors["member_type"] = "Choose Student or Teacher."
 	if not strong_password(password):
 		errors["password"] = "Use 8+ characters with uppercase, lowercase, number, and special character."
 	if password != confirm_password:
@@ -97,8 +100,10 @@ def admin_login(request):
 
 def _login(request, admin_only=False):
 	request.admin_mode = admin_only
-	if request.session.get("member_id"):
+	if request.session.get("member_id") and (not admin_only or request.session.get("role") == "admin"):
 		return redirect("/")
+	if admin_only and request.session.get("member_id"):
+		request.session.flush()
 	default_next = reverse("management:dashboard") if admin_only else "/"
 	next_url = request.GET.get("next", default_next) if request.method == "GET" else request.POST.get("next", default_next)
 	if not url_has_allowed_host_and_scheme(next_url, allowed_hosts={request.get_host()}, require_https=request.is_secure()):
@@ -114,8 +119,23 @@ def _login(request, admin_only=False):
 		payload = {"success": False, "error": "Too many login attempts. Please try again in a few minutes."}
 		return _response(request, payload, status=429, template_name="accounts/login.html")
 
-	member = authenticate_member(identifier, password)
-	if not member or (admin_only and member.get("role") != "admin"):
+	member_type = request.POST.get("member_type", "").strip() or None
+	member = None if admin_only else authenticate_member(identifier, password, member_type)
+	django_admin = None
+	if admin_only:
+		django_admin = authenticate(request, username=identifier, password=password)
+		if django_admin and not (django_admin.is_staff or django_admin.is_superuser):
+			django_admin = None
+
+	if not member and django_admin:
+		member = {
+			"id": f"django-{django_admin.pk}",
+			"username": django_admin.get_username(),
+			"role": "admin",
+			"club_member": False,
+		}
+
+	if not member:
 		cache.set(rate_key, attempts + 1, LOGIN_WINDOW_SECONDS)
 		return _response(request, {"success": False, "error": "Invalid username/email or password."}, status=401, template_name="accounts/login.html")
 
@@ -123,7 +143,8 @@ def _login(request, admin_only=False):
 	request.session.flush()
 	request.session["member_id"] = member["id"]
 	request.session["username"] = member["username"]
-	request.session["role"] = member.get("role", "member")
+	request.session["role"] = "admin" if admin_only else "member"
+	request.session["admin_authenticated"] = bool(admin_only)
 	request.session["is_authenticated"] = True
 	request.session["joined_club"] = bool(member.get("club_member", False))
 	if request.POST.get("remember_me") != "on":

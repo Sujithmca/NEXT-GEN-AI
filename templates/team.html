@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}Our Team | NextGenAI{% endblock %}
 
 {% block content %}
@@ -37,7 +39,7 @@
                     {% if member.profile_image %}
 
                     <img
-                        src="{{ member.profile_image }}"
+                        src="{% get_media_prefix %}{{ member.profile_image }}"
                         class="rounded-circle mb-3"
                         width="110"
                         height="110"
@@ -71,8 +73,12 @@
                         {{ member.department }}
                     </p>
 
-                    <p>
-                        {{ member.bio }}
+                    <p class="team-bio text-secondary">
+                        {% if member.bio %}
+                            {{ member.bio }}
+                        {% else %}
+                            Bio not available.
+                        {% endif %}
                     </p>
 
 

@@ -51,7 +51,7 @@ News & Announcements | NextGenAI
                     name="search"
                     value="{{ search_query }}"
                     class="form-control form-control-lg"
-                    placeholder="🔍 Search news..."
+                    placeholder="Search news..."
                 >
 
             </div>
@@ -111,7 +111,7 @@ News & Announcements | NextGenAI
 
     <h2 class="fw-bold mb-4">
 
-        🔥 Featured Updates
+        <i class="bi bi-megaphone" aria-hidden="true"></i> Featured Updates
 
     </h2>
 
@@ -136,7 +136,7 @@ News & Announcements | NextGenAI
 
                     {% else %}
 
-                    📰
+                    <i class="bi bi-newspaper news-placeholder-icon" aria-hidden="true"></i>
 
                     {% endif %}
 
@@ -169,7 +169,7 @@ News & Announcements | NextGenAI
                     <div class="small text-secondary mb-3">
 
                         {{ item.date }}
-                        ·
+                        <span aria-hidden="true">&middot;</span>
                         {{ item.author }}
 
                     </div>
@@ -180,7 +180,7 @@ News & Announcements | NextGenAI
                         class="btn btn-primary"
                     >
 
-                        Read More →
+                        Read More <i class="bi bi-arrow-right" aria-hidden="true"></i>
 
                     </a>
 
@@ -226,7 +226,7 @@ News & Announcements | NextGenAI
 
                     {% else %}
 
-                    📢
+                    <i class="bi bi-megaphone news-placeholder-icon" aria-hidden="true"></i>
 
                     {% endif %}
 

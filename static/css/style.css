@@ -18,11 +18,13 @@
     --text-primary-color: var(--text-primary);
     --text-secondary-color: var(--text-secondary);
     --border-color: var(--border);
-    --radius-control: 10px;
-    --radius-card: 20px;
-    --shadow-card: 0 18px 45px rgba(1, 8, 22, 0.48);
+    --radius-control: 8px;
+    --radius-card: 14px;
+    --shadow-card: 0 12px 30px rgba(1, 8, 22, 0.28);
     --transition-standard: 0.3s ease;
     --font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    --icon-size: 1.05em;
+    --icon-weight: 500;
 
     --border:
         rgba(255, 255, 255, 0.09);
@@ -85,6 +87,35 @@ body {
 }
 
 
+.nextgen-navbar > .container {
+
+    width:
+        min(100% - 32px, 1440px);
+
+    max-width:
+        none;
+
+    padding-right:
+        0;
+
+    padding-left:
+        0;
+
+}
+
+
+@media (max-width: 767.98px) {
+
+    .nextgen-navbar > .container {
+
+        width:
+            min(100% - 24px, 1440px);
+
+    }
+
+}
+
+
 .nextgen-brand {
 
     font-size:
@@ -95,6 +126,9 @@ body {
 
     letter-spacing:
         -0.5px;
+
+    flex-shrink:
+        0;
 
 }
 
@@ -148,6 +182,12 @@ body {
 
     gap:
         8px;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        nowrap;
 
 }
 
@@ -239,6 +279,113 @@ body {
 
     gap:
         8px;
+
+    flex-shrink:
+        0;
+
+}
+
+
+@media (min-width: 992px) {
+
+    .nextgen-navbar .navbar-collapse {
+
+        display:
+            flex !important;
+
+        align-items:
+            center;
+
+        min-width:
+            0;
+
+    }
+
+    .nextgen-navbar .navbar-nav {
+
+        min-width:
+            0;
+
+        margin-right:
+            24px !important;
+
+        flex-shrink:
+            1;
+
+    }
+
+}
+
+
+@media (min-width: 992px) and (max-width: 1399.98px) {
+
+    .nextgen-navbar .nextgen-brand {
+
+        font-size:
+            1.2rem;
+
+    }
+
+    .nextgen-navbar .brand-logo {
+
+        width:
+            32px;
+
+        height:
+            32px;
+
+        margin-right:
+            6px;
+
+    }
+
+    .nextgen-navbar .navbar-nav {
+
+        gap:
+            2px;
+
+        margin-right:
+            10px !important;
+
+    }
+
+    .nextgen-navbar .nav-link {
+
+        padding:
+            7px 6px !important;
+
+        font-size:
+            0.78rem;
+
+    }
+
+    .nextgen-navbar .navbar-actions {
+
+        gap:
+            4px;
+
+    }
+
+    .nextgen-navbar .nav-icon-btn {
+
+        width:
+            34px;
+
+        height:
+            34px;
+
+    }
+
+    .nextgen-navbar .nav-login-btn,
+    .nextgen-navbar .nav-join-btn {
+
+        padding:
+            7px 10px;
+
+        font-size:
+            0.76rem;
+
+    }
 
 }
 
@@ -2220,6 +2367,26 @@ textarea,
     font-family: var(--font-family);
 }
 
+.bi {
+    font-size: var(--icon-size);
+    font-weight: var(--icon-weight);
+    vertical-align: -0.1em;
+}
+
+.btn .bi,
+.nav-link .bi,
+.nav-icon-btn .bi,
+.footer-contact .bi,
+.footer-socials .bi {
+    margin-right: 0.35em;
+}
+
+.nav-icon-btn .bi,
+.search-close .bi,
+.footer-socials .bi {
+    margin-right: 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
     line-height: 1.15;
@@ -2322,4 +2489,66 @@ button:not(.navbar-toggler) {
 
 .management-page main {
     min-height: calc(100vh - 74px);
+}
+
+.event-placeholder-icon,
+.news-placeholder-icon,
+.gallery-placeholder-icon,
+.project-placeholder > i,
+.project-detail-placeholder > i,
+.resource-icon > i,
+.learning-icon > i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+}
+
+/* Clean default website presentation using the existing brand palette. */
+body {
+    background: var(--bg-primary);
+}
+
+.nextgen-navbar {
+    padding: 12px 0;
+    background: rgba(6, 19, 38, 0.94);
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+}
+
+.card,
+.team-card,
+.event-card,
+.project-card,
+.resource-card,
+.achievement-card,
+.learning-card,
+.feature-card,
+.news-card,
+.news-featured-card,
+.gallery-card,
+.learning-detail-card,
+.auth-card {
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+}
+
+.card:hover,
+.team-card:hover,
+.event-card:hover,
+.project-card:hover,
+.resource-card:hover,
+.achievement-card:hover,
+.learning-card:hover,
+.feature-card:hover,
+.news-card:hover,
+.news-featured-card:hover,
+.gallery-card:hover {
+    transform: translateY(-4px);
+}
+
+.btn,
+.auth-submit {
+    border-radius: var(--radius-control);
 }

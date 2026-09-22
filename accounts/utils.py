@@ -85,6 +85,7 @@ def create_member(member_data):
             "password": make_password(member_data["password"]),
             "department": member_data["department"],
             "year": member_data["year"],
+            "member_type": member_data["member_type"],
             "role": "member",
             "created_at": datetime.now(timezone.utc).isoformat(),
         }
@@ -93,9 +94,13 @@ def create_member(member_data):
     return member
 
 
-def authenticate_member(identifier, password):
+def authenticate_member(identifier, password, member_type=None):
     member = find_user_by_email(identifier) or find_user_by_username(identifier)
-    if not member or not check_password(password, member.get("password", "")):
+    if (
+        not member
+        or not check_password(password, member.get("password", ""))
+        or (member_type and member.get("member_type") != member_type)
+    ):
         return None
     return member
 

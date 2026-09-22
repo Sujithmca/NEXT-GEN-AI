@@ -44,7 +44,7 @@
                     name="search"
                     value="{{ search_query }}"
                     class="form-control form-control-lg"
-                    placeholder="🔍 Search resources..."
+                    placeholder="Search resources..."
                 >
 
             </div>
@@ -137,19 +137,19 @@
                 <div class="resource-icon">
 
                     {% if resource.resource_type == "Course" %}
-                        🎓
+                        <i class="bi bi-mortarboard" aria-hidden="true"></i>
                     {% elif resource.resource_type == "Video" %}
-                        🎥
+                        <i class="bi bi-camera-video" aria-hidden="true"></i>
                     {% elif resource.resource_type == "Documentation" %}
-                        📖
+                        <i class="bi bi-journal-text" aria-hidden="true"></i>
                     {% elif resource.resource_type == "Research Paper" %}
-                        📄
+                        <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
                     {% elif resource.resource_type == "Roadmap" %}
-                        🗺️
+                        <i class="bi bi-map" aria-hidden="true"></i>
                     {% elif resource.resource_type == "Coding Platform" %}
-                        💻
+                        <i class="bi bi-code-slash" aria-hidden="true"></i>
                     {% else %}
-                        🚀
+                        <i class="bi bi-lightning-charge" aria-hidden="true"></i>
                     {% endif %}
 
                 </div>
@@ -186,7 +186,7 @@
                         rel="noopener noreferrer"
                         class="btn btn-outline-primary"
                     >
-                        Open Resource ↗
+                        Open Resource <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
                     </a>
 
                 </div>
