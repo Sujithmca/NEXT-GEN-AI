@@ -1,0 +1,190 @@
+.management-page {
+    --management-surface: rgba(11, 29, 53, 0.92);
+    --management-surface-soft: rgba(255, 255, 255, 0.045);
+    --management-border: rgba(255, 255, 255, 0.1);
+    --management-muted: #b8c4d8;
+}
+
+.management-page main {
+    overflow-x: hidden;
+}
+
+.management-page .nextgen-navbar > .container {
+    width: min(100% - 32px, 1440px);
+    max-width: none;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.management-page main > .container,
+.management-page main > .container-fluid {
+    width: min(100% - 32px, 1440px);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 42px !important;
+    padding-bottom: 48px !important;
+}
+
+.management-page h1,
+.management-page h2,
+.management-page h3,
+.management-page h4,
+.management-page h5,
+.management-page h6,
+.management-page p,
+.management-page label,
+.management-page th,
+.management-page td,
+.management-page .btn,
+.management-page .form-control,
+.management-page .form-select {
+    letter-spacing: 0;
+}
+
+.management-page h1,
+.management-page h2,
+.management-page h3,
+.management-page h4,
+.management-page h5,
+.management-page h6 {
+    color: var(--text-primary);
+    font-family: "Segoe UI", sans-serif;
+    line-height: 1.25;
+}
+
+.management-page h1 { font-size: clamp(1.7rem, 3vw, 2.35rem); }
+.management-page h2 { font-size: clamp(1.45rem, 2.5vw, 2rem); }
+.management-page h4 { font-size: 1.2rem; }
+.management-page .text-muted { color: var(--management-muted) !important; }
+
+.management-page .card {
+    border: 1px solid var(--management-border) !important;
+    background: var(--management-surface);
+    color: var(--text-primary);
+    box-shadow: 0 14px 34px rgba(1, 8, 22, 0.22) !important;
+}
+
+.management-page .card-body {
+    min-width: 0;
+}
+
+.management-page .row {
+    --bs-gutter-y: 1.5rem;
+}
+
+.management-page .btn {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+.management-page .table {
+    min-width: 720px;
+    margin-bottom: 0;
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.management-page .table > :not(caption) > * > * {
+    padding: 0.95rem 1rem;
+    border-bottom-color: var(--management-border);
+}
+
+.management-page .table thead th {
+    color: var(--accent-color);
+    background: var(--management-surface-soft);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.management-page .table tbody td {
+    color: #edf3fb;
+    font-size: 0.95rem;
+}
+
+.management-page .table tbody tr:hover > * {
+    color: var(--text-primary);
+    background: rgba(245, 185, 66, 0.06);
+}
+
+.management-page .table-responsive {
+    border-radius: 10px;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+.management-page .form-label {
+    margin-bottom: 0.45rem;
+    color: #edf3fb;
+    font-size: 0.9rem;
+}
+
+.management-page .form-control,
+.management-page .form-select {
+    min-height: 46px;
+    border: 1px solid var(--management-border);
+    background: rgba(6, 19, 38, 0.7);
+    color: var(--text-primary);
+}
+
+.management-page textarea.form-control {
+    min-height: 120px;
+}
+
+.management-page .form-control::placeholder { color: #8f9db2; }
+.management-page .form-control:focus,
+.management-page .form-select:focus {
+    border-color: var(--primary-color);
+    background: rgba(6, 19, 38, 0.9);
+    color: var(--text-primary);
+    box-shadow: 0 0 0 0.2rem rgba(245, 185, 66, 0.16);
+}
+
+.management-page .alert {
+    border: 1px solid var(--management-border);
+    line-height: 1.5;
+}
+
+@media (max-width: 767.98px) {
+    .management-page .nextgen-navbar > .container {
+        width: min(100% - 24px, 1440px);
+    }
+
+    .management-page main > .container,
+    .management-page main > .container-fluid {
+        width: min(100% - 24px, 1440px);
+        padding-top: 28px !important;
+        padding-bottom: 32px !important;
+    }
+
+    .management-page main .d-flex.justify-content-between.align-items-center {
+        align-items: flex-start !important;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .management-page main .d-flex.justify-content-between.align-items-center > div:last-child,
+    .management-page main .d-flex.justify-content-between.align-items-center > a {
+        width: 100%;
+    }
+
+    .management-page main .d-flex.justify-content-between.align-items-center > div:last-child {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+
+    .management-page main .d-flex.justify-content-between.align-items-center > div:last-child .btn {
+        flex: 1 1 140px;
+    }
+
+    .management-page .card-body {
+        padding: 1.25rem !important;
+    }
+}

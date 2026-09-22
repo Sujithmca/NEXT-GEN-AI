@@ -44,6 +44,9 @@
     >
 <link rel="stylesheet" href="{% static 'css/auth.css' %}">
     <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+    {% if request.resolver_match.namespace == "management" %}
+        <link rel="stylesheet" href="{% static 'css/management.css' %}">
+    {% endif %}
 
 </head>
 
