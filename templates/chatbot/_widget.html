@@ -1,0 +1,64 @@
+{% load static %}
+
+<button
+    id="nextgenaiChatButton"
+    class="nextgenai-chat-button"
+    type="button"
+    aria-controls="nextgenaiChatWindow"
+    aria-expanded="false"
+    title="Ask NextGenAI"
+>
+    <i class="bi bi-stars" aria-hidden="true"></i>
+    <span>Ask NextGenAI</span>
+</button>
+
+<section
+    id="nextgenaiChatWindow"
+    class="nextgenai-chat-window"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="nextgenaiChatTitle"
+    hidden
+>
+    <div class="nextgenai-chat-header">
+        <div class="nextgenai-assistant-info">
+            <div class="nextgenai-ai-avatar"><i class="bi bi-stars" aria-hidden="true"></i></div>
+            <div>
+                <p id="nextgenaiChatTitle" class="nextgenai-assistant-name">NextGenAI Assistant</p>
+                <p class="nextgenai-assistant-status"><span class="nextgenai-online-dot"></span>Online</p>
+            </div>
+        </div>
+        <div class="nextgenai-header-buttons">
+            <button class="nextgenai-header-btn" type="button" data-chat-action="minimize" aria-label="Minimize chatbot" title="Minimize chatbot">
+                <i class="bi bi-dash-lg" aria-hidden="true"></i>
+            </button>
+            <button class="nextgenai-header-btn" type="button" data-chat-action="close" aria-label="Close chatbot" title="Close chatbot">
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="nextgenaiChatMessages" class="nextgenai-chat-body">
+        <div class="nextgenai-welcome-card">
+            <h4><i class="bi bi-stars" aria-hidden="true"></i> Hi! I'm NextGenAI Assistant</h4>
+            <p>Ask me about AI, coding, projects, learning roadmaps or our club.</p>
+        </div>
+
+        <div id="nextgenaiTypingIndicator" class="nextgenai-typing-indicator" hidden aria-live="polite" aria-label="Assistant is typing">
+            <div class="nextgenai-typing-avatar"><i class="bi bi-stars" aria-hidden="true"></i></div>
+            <div class="nextgenai-typing-bubble">
+                <span class="nextgenai-typing-dot"></span>
+                <span class="nextgenai-typing-dot"></span>
+                <span class="nextgenai-typing-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="nextgenai-chat-footer">
+        <form id="nextgenaiChatForm" class="nextgenai-chat-form" method="post" data-chat-endpoint="{% url 'chatbot:chat' %}">
+            {% csrf_token %}
+            <input id="nextgenaiChatInput" class="nextgenai-chat-input" type="text" autocomplete="off" placeholder="Ask NextGenAI..." required>
+            <button id="nextgenaiSendButton" class="nextgenai-chat-send" type="submit">Send</button>
+        </form>
+    </div>
+</section>

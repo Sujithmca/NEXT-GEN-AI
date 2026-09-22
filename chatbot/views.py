@@ -1,15 +1,7 @@
 from django.http import JsonResponse
-from django.shortcuts import render
 from django.views.decorators.http import require_POST
 
 from .services import ask_ai
-
-
-def chat_page(request):
-    return render(
-        request,
-        "chatbot/chat.html"
-    )
 
 
 @require_POST

@@ -43,6 +43,7 @@
         href="{% static 'css/style.css' %}"
     >
 <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
 
 </head>
 
@@ -90,104 +91,8 @@
 
 {% endif %}
 {% if request.resolver_match.url_name not in "login register admin_login" %}
-<!-- NextGenAI Floating AI Assistant -->
-
-<a href="{% url 'chatbot:page' %}"
-   class="nextgenai-chat-button"
-   title="Ask NextGenAI">
-
-    🤖
-    <span>Ask NextGenAI</span>
-
-</a>
+{% include "chatbot/_widget.html" %}
 {% endif %}
-
-
-<style>
-
-.nextgenai-chat-button {
-
-    position: fixed;
-
-    right: 25px;
-    bottom: 25px;
-
-    z-index: 9999;
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 14px 20px;
-
-    background: linear-gradient(
-        135deg,
-        var(--primary-color),
-        var(--secondary-color)
-    );
-
-    color: white;
-
-    text-decoration: none;
-
-    border-radius: 50px;
-
-    font-weight: 600;
-
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.25);
-
-    transition: all 0.3s ease;
-
-}
-
-
-.nextgenai-chat-button:hover {
-
-    color: white;
-
-    transform: translateY(-5px) scale(1.03);
-
-    box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.35);
-
-}
-
-
-.nextgenai-chat-button:first-letter {
-
-    font-size: 22px;
-
-}
-
-
-@media (max-width: 576px) {
-
-    .nextgenai-chat-button {
-
-        right: 15px;
-        bottom: 15px;
-
-        width: 55px;
-        height: 55px;
-
-        padding: 0;
-
-        justify-content: center;
-
-        border-radius: 50%;
-
-    }
-
-    .nextgenai-chat-button span {
-
-        display: none;
-
-    }
-
-}
-
-</style>
 
     <!-- Bootstrap JS -->
     <script
@@ -199,6 +104,7 @@
     <script
     src="{% static 'js/phase5.js' %}"
 ></script>
+        <script src="{% static 'js/chatbot.js' %}"></script>
 
 </body>
 
