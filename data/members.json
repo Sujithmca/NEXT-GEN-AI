@@ -1,1 +1,17 @@
-[]
+{
+  "members": [
+    {
+      "id": 1,
+      "full_name": "sujith",
+      "username": "sujith",
+      "email": "sujith@gmail.com",
+      "phone": "1234567899",
+      "password": "pbkdf2_sha256$870000$D6yHKuyPQuf014V4qmgm52$l0WygElUmxXtiShksH11QsXGbS29F/+PipMWoFNhCGA=",
+      "department": "MCA",
+      "year": "I Year",
+      "member_type": "Student",
+      "role": "member",
+      "created_at": "2026-09-25T08:51:10.701697+00:00"
+    }
+  ]
+}

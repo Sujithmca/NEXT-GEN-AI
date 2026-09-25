@@ -1,0 +1,72 @@
+.nextgen-navbar > .container {
+    width: min(100% - 32px, 1440px);
+    max-width: none;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.nextgen-navbar .nextgen-brand {
+    flex-shrink: 0;
+}
+
+@media (min-width: 992px) {
+    .nextgen-navbar .navbar-collapse {
+        display: flex !important;
+        align-items: center;
+        min-width: 0;
+    }
+
+    .nextgen-navbar .navbar-nav {
+        min-width: 0;
+        flex-shrink: 1;
+        justify-content: center;
+        margin-right: 24px !important;
+    }
+
+    .nextgen-navbar .navbar-actions {
+        flex-shrink: 0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1399.98px) {
+    .nextgen-navbar .nextgen-brand {
+        font-size: 1.2rem;
+    }
+
+    .nextgen-navbar .brand-logo {
+        width: 32px;
+        height: 32px;
+        margin-right: 6px;
+    }
+
+    .nextgen-navbar .navbar-nav {
+        gap: 2px;
+        margin-right: 10px !important;
+    }
+
+    .nextgen-navbar .nav-link {
+        padding: 7px 6px !important;
+        font-size: 0.78rem;
+    }
+
+    .nextgen-navbar .navbar-actions {
+        gap: 4px;
+    }
+
+    .nextgen-navbar .nav-icon-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .nextgen-navbar .nav-login-btn,
+    .nextgen-navbar .nav-join-btn {
+        padding: 7px 10px;
+        font-size: 0.76rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .nextgen-navbar > .container {
+        width: min(100% - 24px, 1440px);
+    }
+}
